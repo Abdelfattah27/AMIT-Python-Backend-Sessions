@@ -1,6 +1,6 @@
-# Session 1
+# Python
 
-## Steps
+# Session 1
 
 - Installation [Python](https://www.python.org/downloads/)
   - in the installation we install Python interpreter which interpret from python to a language that the machine know, the standard library , and some tools such as the pip package manager.
@@ -114,21 +114,8 @@ bad code
 
   - pluse (+) can be work as addition or concatenation
   - functions [type , float , int , str , print , input]
-  - try except
   - Comments [ # ]
-  - Conditions : [ if , Switch ]
   - Comparison Operators [< , > , == , >= , <= , !=]
-  - Functions
-  - Loops [while, for .. in .. ]
-  - None , is
-    -Loops
-  - while
-  - for
-
-    ````python
-    for iterator_var in sequence :
-        statement(s) ```
-    ````
 
 ## if Statement
 
@@ -178,9 +165,76 @@ print(divide(10, 5))
 print(divide(10, 0))
 ```
 
-### Python Loops
+## python code life time
 
-#### For Loops
+Python is an interpreted language, which means that the code is executed by an interpreter at runtime, rather than being compiled into machine code ahead of time. When you run a Python program, the interpreter reads your code line by line, interpreting each statement and executing it immediately.
+
+Python is an interpreted language, which means that the code is executed by an interpreter at runtime, rather than being compiled into machine code ahead of time. When you run a Python program, the interpreter reads your code line by line, interpreting each statement and executing it immediately.
+
+Here's a simplified overview of the process of interpreting Python code:
+
+- Tokenization: The interpreter reads the source code and breaks it down into a sequence of tokens, which are the basic units of the language, such as keywords, identifiers, operators, and literals.
+- Parsing: The interpreter uses the tokens to build an abstract syntax tree (AST), which represents the structure of the program according to the rules of the Python grammar. The AST is a hierarchical tree-like structure that describes the relationships between the statements, expressions, and other language constructs in the program.
+- Compilation: The interpreter generates bytecode from the AST, which is a lower-level representation of the program that can be executed by the Python virtual machine (PVM). The bytecode is a sequence of instructions that perform the operations specified by the code, such as assigning values to variables, calling functions, and so on.
+- Execution: The interpreter runs the bytecode on the PVM, which is a runtime environment that provides the necessary infrastructure to execute the code. The PVM executes the bytecode instruction by instruction, updating the program state as it goes, such as the values of variables and the call stack.
+
+```python
+# Example code
+x = 10
+y = 5
+if x > y:
+    print("x is greater than y")
+else:
+    print("y is greater than x")
+
+```
+
+When this code is executed, the interpreter does the following:
+
+1. Tokenizes the code into a sequence of tokens, such as x, =, 10, if, x, >, y, :, print, "x is greater than y", else, :, print, "y is greater than x", and so on.
+2. Parses the tokens into an AST, which represents the structure of the code, such as a Module node with a Body node containing a FunctionDef node for the main function, a Assign node for the x = 10 statement, a Assign node for the y = 5 statement, a If node for the if statement, and so on.
+3. Compiles the AST into bytecode, which represents the lower-level instructions to execute the code, such as LOAD_CONST for the 10 literal, STORE_NAME for the x variable, LOAD_NAME for the x and y variables, COMPARE_OP for the > operator, POP_JUMP_IF_FALSE for the else branch, LOAD_CONST for the "x is greater than y" string, PRINT_ITEM and PRINT_NEWLINE for the print() function, and so on.
+4. Executes the bytecode on the PVM, which updates the program state and produces the output, such as x being assigned to 10, y being assigned to 5, the comparison between x and y being performed, the "x is greater than y" string being printed, and so on.
+
+### obtain the byte code
+
+```python
+import marshal
+
+# Open the Python file and read its contents
+with open('example.py', 'r') as f:
+    source_code = f.read()
+
+# Compile the source code into a code object
+code = compile(source_code, 'example.py', 'exec')
+
+# Convert the code object to a binary format
+code_bytes = marshal.dumps(code)
+
+# Print the bytecode in hexadecimal format
+print(code_bytes.hex())
+
+```
+
+In this example, example.py is the name of the Python file you want to compile. The compile() function takes three arguments: the source code as a string, the filename (which can be any string), and the mode, which can be 'exec', 'eval', or 'single'. The 'exec' mode is used for compiling a module or a program, and is the most common mode.
+
+The compile() function returns a code object that represents the compiled bytecode. To print the bytecode in a readable format, we can use the hex() method to convert the bytecode to hexadecimal format.
+
+[**AST visualization**](https://python-ast-explorer.com/)
+
+## Tasks
+
+1. Create a simple calculator that takes user input and performs basic arithmetic operations such as addition, subtraction, multiplication, and division using the arithmetic operators.
+2. Write a program that prompts the user to enter a temperature in Celsius and converts it to Fahrenheit using the appropriate formula.
+3. Write a program that prompts the user to enter a number and checks if it is a prime number using a loop and the modulo operator.
+4. Write a program that input a number and output the equevelent day of the week to it
+5. Write a progamme to get a grade and print the equeelent [excellent , very good , good , accpted , fail ]
+
+# Session 2
+
+## Python Loops
+
+### For Loops
 
 A for loop is used to iterate over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
 
@@ -189,7 +243,7 @@ for variable in sequence:
     # code to be executed for each item in sequence
 ```
 
-##### The range() Function
+#### The range() Function
 
 The range() function can be used to generate a sequence of numbers that can be used in a for loop. Here's the basic syntax for the range() function:
 
@@ -198,7 +252,7 @@ for x in range(5):
     print(x)
 ```
 
-#### While Loops
+### While Loops
 
 A while loop is used to repeatedly execute a block of code as long as a specified condition is true. Here's the basic syntax for a while loop:
 
@@ -207,7 +261,7 @@ while condition:
     # code to be executed while the condition is true
 ```
 
-#### break statement
+### break statement
 
 ```python
 i = 0
@@ -219,7 +273,7 @@ while i < 5:
 
 ```
 
-#### continue statement
+### continue statement
 
 ```python
 i = 0
@@ -348,72 +402,12 @@ print(s_join)  # Output: "The-quick-brown-fox-jumps-over-the-lazy-dog"
 
 ```
 
-## python code life time
-
-Python is an interpreted language, which means that the code is executed by an interpreter at runtime, rather than being compiled into machine code ahead of time. When you run a Python program, the interpreter reads your code line by line, interpreting each statement and executing it immediately.
-
-Python is an interpreted language, which means that the code is executed by an interpreter at runtime, rather than being compiled into machine code ahead of time. When you run a Python program, the interpreter reads your code line by line, interpreting each statement and executing it immediately.
-
-Here's a simplified overview of the process of interpreting Python code:
-
-- Tokenization: The interpreter reads the source code and breaks it down into a sequence of tokens, which are the basic units of the language, such as keywords, identifiers, operators, and literals.
-- Parsing: The interpreter uses the tokens to build an abstract syntax tree (AST), which represents the structure of the program according to the rules of the Python grammar. The AST is a hierarchical tree-like structure that describes the relationships between the statements, expressions, and other language constructs in the program.
-- Compilation: The interpreter generates bytecode from the AST, which is a lower-level representation of the program that can be executed by the Python virtual machine (PVM). The bytecode is a sequence of instructions that perform the operations specified by the code, such as assigning values to variables, calling functions, and so on.
-- Execution: The interpreter runs the bytecode on the PVM, which is a runtime environment that provides the necessary infrastructure to execute the code. The PVM executes the bytecode instruction by instruction, updating the program state as it goes, such as the values of variables and the call stack.
-
-```python
-# Example code
-x = 10
-y = 5
-if x > y:
-    print("x is greater than y")
-else:
-    print("y is greater than x")
-
-```
-
-When this code is executed, the interpreter does the following:
-
-1. Tokenizes the code into a sequence of tokens, such as x, =, 10, if, x, >, y, :, print, "x is greater than y", else, :, print, "y is greater than x", and so on.
-2. Parses the tokens into an AST, which represents the structure of the code, such as a Module node with a Body node containing a FunctionDef node for the main function, a Assign node for the x = 10 statement, a Assign node for the y = 5 statement, a If node for the if statement, and so on.
-3. Compiles the AST into bytecode, which represents the lower-level instructions to execute the code, such as LOAD_CONST for the 10 literal, STORE_NAME for the x variable, LOAD_NAME for the x and y variables, COMPARE_OP for the > operator, POP_JUMP_IF_FALSE for the else branch, LOAD_CONST for the "x is greater than y" string, PRINT_ITEM and PRINT_NEWLINE for the print() function, and so on.
-4. Executes the bytecode on the PVM, which updates the program state and produces the output, such as x being assigned to 10, y being assigned to 5, the comparison between x and y being performed, the "x is greater than y" string being printed, and so on.
-
-### obtain the byte code
-
-```python
-import marshal
-
-# Open the Python file and read its contents
-with open('example.py', 'r') as f:
-    source_code = f.read()
-
-# Compile the source code into a code object
-code = compile(source_code, 'example.py', 'exec')
-
-# Convert the code object to a binary format
-code_bytes = marshal.dumps(code)
-
-# Print the bytecode in hexadecimal format
-print(code_bytes.hex())
-
-```
-
-In this example, example.py is the name of the Python file you want to compile. The compile() function takes three arguments: the source code as a string, the filename (which can be any string), and the mode, which can be 'exec', 'eval', or 'single'. The 'exec' mode is used for compiling a module or a program, and is the most common mode.
-
-The compile() function returns a code object that represents the compiled bytecode. To print the bytecode in a readable format, we can use the hex() method to convert the bytecode to hexadecimal format.
-
-[**AST visualization**](https://python-ast-explorer.com/)
-
 ## Tasks
 
-1. Create a simple calculator that takes user input and performs basic arithmetic operations such as addition, subtraction, multiplication, and division using the arithmetic operators.
-2. Write a program that prompts the user to enter a temperature in Celsius and converts it to Fahrenheit using the appropriate formula.
-3. Write a program that prompts the user to enter a string and counts the number of characters in the string using the len() function.
-4. Write a program that prompts the user to enter a number and determines whether it is even or odd using the modulo operator (%).
-5. Write a program that prompts the user to enter a number and checks if it is a prime number using a loop and the modulo operator.
-6. Write a program that uses a for loop to iterate over a list of numbers and prints the sum of the numbers.
-7. Write a program that uses a while loop to repeatedly prompt the user to enter a password until they enter the correct password.
-8. Write a program that reads a file and counts the number of lines, words, and characters in the file.
-9. Write a program that uses a function to calculate the area and perimeter of a rectangle based on user input for the length and width.
-10. Write a program that prompts the user to enter a sentence and then reverses the order of the words in the sentence.
+1. Write a program that prompts the user to enter a string and counts the number of characters in the string using the len() function.
+2. Write a program that prompts the user to enter a number and determines whether it is even or odd using the modulo operator (%).
+3. Write a program that uses a for loop to iterate over a list of numbers and prints the sum of the numbers.
+4. Write a program that uses a while loop to repeatedly prompt the user to enter a password until they enter the correct password.
+5. Write a program that reads a file and counts the number of lines, words, and characters in the file.
+6. Write a program that uses a function to calculate the area and perimeter of a rectangle based on user input for the length and width.
+7. Write a program that prompts the user to enter a sentence and then reverses the order of the words in the sentence.
