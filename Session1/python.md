@@ -1228,23 +1228,21 @@ The bytecode files have a .pyc or .pyo file extension, depending on whether opti
 
 # Session 4
 
-## JSON APIs handling in Python
-
 ## OOP
 
 ### What's OOP
 
-        OOP stands for Object-Oriented Programming. It's a programming paradigm that uses objects, which are instances of classes, to represent and manipulate data. OOP is based on the concepts of encapsulation, inheritance, and polymorphism.
+    OOP stands for Object-Oriented Programming. It's a programming paradigm that uses objects, which are instances of classes, to represent and manipulate data. OOP is based on the concepts of encapsulation, inheritance, and polymorphism.
 
-        Encapsulation means that data and the methods that operate on that data are encapsulated into a single unit, the object. Inheritance allows new objects to be based on existing objects, inheriting their properties and methods. Polymorphism refers to the ability of objects of different classes to be used interchangeably.
+    Encapsulation means that data and the methods that operate on that data are encapsulated into a single unit, the object. Inheritance allows new objects to be based on existing objects, inheriting their properties and methods. Polymorphism refers to the ability of objects of different classes to be used interchangeably.
 
-        OOP provides a way to organize and structure code, making it easier to develop and maintain complex programs. It's widely used in software development for creating reusable, modular, and scalable code.
+    OOP provides a way to organize and structure code, making it easier to develop and maintain complex programs. It's widely used in software development for creating reusable, modular, and scalable code.
 
 ### Python and OOP
 
-        Python is a multi-paradigm language, which means it supports multiple programming paradigms including object-oriented programming, functional programming, and procedural programming. So, Python can be used for object-oriented programming, functional programming, or any other programming paradigm you choose.
+    Python is a multi-paradigm language, which means it supports multiple programming paradigms including object-oriented programming, functional programming, and procedural programming. So, Python can be used for object-oriented programming, functional programming, or any other programming paradigm you choose.
 
-        However, while Python supports functional programming, it is not a pure functional programming language like Haskell or Lisp. Python supports functional programming concepts like higher-order functions, lambda functions, and recursion, but it also allows mutable data structures and side-effects, which are typically not used in pure functional programming.
+    However, while Python supports functional programming, it is not a pure functional programming language like Haskell or Lisp. Python supports functional programming concepts like higher-order functions, lambda functions, and recursion, but it also allows mutable data structures and side-effects, which are typically not used in pure functional programming.
 
 ### Why OOP With Examples
 
@@ -1678,21 +1676,21 @@ This is why you can use the super() function to call methods in the parent class
 
 ##### Attributes inherited from object class by default
 
-\_\_class\_\_: Returns the class object of the instance.
-\_\_delattr\_\_(self, name): Deletes an attribute from the instance.
-\_\_dir\_\_(self): Returns a list of valid attributes for the instance.
-\_\_doc\_\_: Provides documentation for the class.
-\_\_eq\_\_(self, other): Returns True if the instance is equal to the other instance.
-\_\_format\_\_(self, format_spec): Formats the instance as a string.
-\_\_ge\_\_(self, other): Returns True if the instance is greater than or equal to the other instance.
-\_\_getattribute\_\_(self, name): Retrieves the value of an attribute from the instance.
-\_\_gt\_\_(self, other): Returns True if the instance is greater than the other instance.
-\_\_hash\_\_(self): Returns a hash value for the instance.
-\_\_init_subclass\_\_: Method called when a class is subclassed.
-\_\_le\_\_(self, other): Returns True if the instance is less than or equal to the other instance.
-\_\_lt\_\_(self, other): Returns True if the instance is less than the other instance.
-\_\_ne\_\_(self, other): Returns True if the instance is not equal to the other instance.
-\_\_new\_\_(cls, \*args, \*\*kwargs): Creates and returns a new instance of the class.
+1. \_\_class\_\_: Returns the class object of the instance.
+2. \_\_delattr\_\_(self, name): Deletes an attribute from the instance.
+3. \_\_dir\_\_(self): Returns a list of valid attributes for the instance.
+4. \_\_doc\_\_: Provides documentation for the class.
+5. \_\_eq\_\_(self, other): Returns True if the instance is equal to the other instance.
+6. \_\_format\_\_(self, format_spec): Formats the instance as a string.
+7. \_\_ge\_\_(self, other): Returns True if the instance is greater than or equal to the other instance.
+8. \_\_getattribute\_\_(self, name): Retrieves the value of an attribute from the instance.
+9. \_\_gt\_\_(self, other): Returns True if the instance is greater than the other instance.
+10. \_\_hash\_\_(self): Returns a hash value for the instance.
+11. \_\_init_subclass\_\_: Method called when a class is subclassed.
+12. \_\_le\_\_(self, other): Returns True if the instance is less than or equal to the other instance.
+13. \_\_lt\_\_(self, other): Returns True if the instance is less than the other instance.
+14. \_\_ne\_\_(self, other): Returns True if the instance is not equal to the other instance.
+15. \_\_new\_\_(cls, \*args, \*\*kwargs): Creates and returns a new instance of the class.
 
 ```python
 class Person:
