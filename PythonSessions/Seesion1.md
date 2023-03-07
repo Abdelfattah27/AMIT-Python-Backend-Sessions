@@ -12,9 +12,9 @@
   - it provides automatic memory management through a process called garbage collection.
   - python is interpreted language [Snake]
   - developed by [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum)
-  - Reserved Words : the way of exploring any langualge even the natural one is by knowing it's words which uses to communicate with others who know it, so the python like any lang have a words that resered to itself, have implicit meaning can't be changed, they are :
-    - ![ReservedWordsOnPython](ReservedWords.png)
-  - can be written Interactive or script : like js it can be written line by ine from the cmd and each line you write the interpretter interpret it ant excute it immediatlly and can be written as script on a file and run the file only one time
+  - Reserved Words : the way of exploring any language even the natural one is by knowing it's words which uses to communicate with others who know it, so the python like any lang have a words that reserved to itself, have implicit meaning can't be changed, they are :
+    - ![ReservedWordsOnPython](Resources/ReservedWords.png)
+  - can be written Interactive or script : like js it can be written line by ine from the cmd and each line you write the interpreter interpret it ant execute it immediately and can be written as script on a file and run the file only one time
 
 ## Variables
 
@@ -98,7 +98,7 @@ bad code
   ```
 
   - Operators on Python
-    ![OperatorsOnPython](Operrators.png)
+    ![OperatorsOnPython](Resources/Operrators.png)
   - precedence rule :
     **Parenthesis > Power > Multiplication > Addition > Left to Right**
 
