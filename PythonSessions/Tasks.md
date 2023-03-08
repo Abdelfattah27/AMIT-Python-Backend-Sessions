@@ -267,12 +267,24 @@
 1. Create a Python function that takes a list of numbers as input and returns a new list containing only the even numbers. Use list comprehension to implement the function.
 
    ```python
-
+    def get_even_numbers(numbers):
+    return [num for num in numbers if num % 2 == 0]
    ```
 
 2. Write a Python program that reads a CSV file and creates a dictionary from the data, where the keys are the first column values and the values are lists containing the remaining columns.
 
    ```python
+   # CSV file :
+   # CSV stands for Comma Separated Values, it is a file format used for storing and
+   # exchanging tabular data between applications. In a CSV file, each line represents a
+   # row of data, and each value in the row is separated by a comma. The first row of a CSV file
+   # is usually used to store the column headings.
+
+    # Year,Month,Product,Sales
+    # 2020,January,Product A,1000
+    # 2020,January,Product B,1500
+    # 2020,February,Product A,1200
+    # 2020,February,Product B,1800
     import csv
 
     with open('data.csv', 'r') as csv_file:
@@ -331,19 +343,27 @@
 6. Write a Python program that reads a text file and counts the occurrences of each word in the file. Use a dictionary to store the word counts and a generator to read the file.
 
    ```python
-    import re
+    def word_count(filename):
+        # Create an empty dictionary to store the word counts
+        word_counts = {}
 
-    def count_words(file_name):
-        with open(file_name, 'r') as file:
-            word_count = {}
-            for line in file:
-                words = re.findall('\w+', line.lower())
-                for word in words:
-                    if word in word_count:
-                        word_count[word] += 1
-                    else:
-                        word_count[word] = 1
-        return word_count
+        # Use a generator to read the file line by line
+        with open(filename, 'r') as file:
+            lines = (line.rstrip() for line in file)
+            words = (word for line in lines for word in line.split())
+
+            # Count the occurrences of each word
+            for word in words:
+                if word in word_counts:
+                    word_counts[word] += 1
+                else:
+                    word_counts[word] = 1
+
+        # Return the word counts
+        return word_counts
+    filename = 'example.txt'
+    word_counts = word_count(filename)
+    print(word_counts)
 
    ```
 
@@ -393,27 +413,3 @@
 
 
    ```
-
-9. Create a Python program that reads a JSON file containing a list of dictionaries representing employees, and prints the name and salary of each employee sorted by salary in descending order.
-
-   ```python
-   import json
-
-    with open('employees.json', 'r') as file:
-        data = json.load(file)
-
-    employees = sorted(data, key=lambda emp: emp['salary'], reverse=True)
-
-    for emp in employees:
-        print(f"{emp['name']}: {emp['salary']}")
-
-
-   ```
-
-10. Write a Python function that takes a list of dictionaries as input, and returns a new list of dictionaries with the same keys, but with the values sorted in ascending order. Use a lambda function as the key function for sorting the values.
-
-    ```python
-    def sort_dict_values(dicts):
-        return [{k: sorted(v, key=lambda x: x) for k, v in d.items()} for d in dicts]
-
-    ```
