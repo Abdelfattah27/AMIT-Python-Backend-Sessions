@@ -174,6 +174,8 @@ CREATE TABLE Employee_Project_Assignment (
 
 #### TASK
 
+Make a mini world
+
 A social media platform that allows users to create profiles, share posts, follow other users, and like and comment on posts. Each user has a unique username and password, and they can fill out their profile information including their name, email, and bio. Users can upload profile pictures and cover photos.
 
 Users can create posts, which include text, photos, and videos. Each post has a timestamp and can be tagged with topics or hashtags. Users can also like and comment on posts, and they can share posts to their own followers or specific groups.
@@ -185,3 +187,45 @@ The platform also tracks analytics about user engagement and post performance. E
 Students can use this miniworld to create an ER diagram that represents the entities and relationships in the social media web app.
 
 **Use [this](https://app.creately.com/) and it will help you ISA**
+
+### More tasks
+
+- ECommerce app
+  An ecommerce application miniworld would involve the representation of a simplified online store, where customers can browse and purchase products from the store. The entities involved in this miniworld would include customers, products, orders, payments, and shipping details.
+
+  The customer entity would include attributes such as customer ID, name, email address, shipping address, and payment information. The product entity would include attributes such as product ID, name, description, price, and quantity in stock. The order entity would include attributes such as order ID, customer ID, order date, and order status. The payment entity would include attributes such as payment ID, order ID, payment method, and payment amount. Finally, the shipping details entity would include attributes such as shipping ID, order ID, shipping address, and shipping status.
+
+  The relationships between these entities would be as follows:
+
+  Each customer can place multiple orders, but each order belongs to a single customer.
+  Each order can contain multiple products, and each product can appear in multiple orders.
+  Each order must have associated payment and shipping details.
+
+- College Management system
+
+  A college management system miniworld is a system designed to manage various aspects of a college or university. Here is a description of the various entities, relationships, and data attributes that could be involved in this miniworld:
+
+  Entities:
+
+  Students: Individuals who are enrolled in the college or university.
+  Faculty: Teachers or professors who teach courses at the college or university.
+  Courses: Academic courses offered by the college or university.
+  Departments: Academic departments within the college or university.
+  Staff: Administrative and support staff who work at the college or university.
+  Classes: Sections of courses that students can register for and attend.
+  Relationships:
+
+  Students can register for multiple courses, and each course can have multiple students enrolled in it.
+  Faculty can teach multiple courses, and each course can be taught by one or more faculty members.
+  Courses belong to one or more departments, and each department can offer multiple courses.
+  Staff members can work in one or more departments.
+  Classes are associated with one course, and each course can have multiple classes.
+
+  Data Attributes:
+
+  Students: Name, date of birth, address, contact details, major, academic records, and extracurricular activities.
+  Faculty: Name, contact details, academic qualifications, courses taught, and research interests.
+  Courses: Course code, course name, course description, credit hours, department offering the course, and prerequisites.
+  Departments: Department code, department name, department chair, and faculty members.
+  Staff: Name, contact details, department, and job responsibilities.
+  Classes: Class ID, course code, faculty member(s) teaching the class, schedule, classroom, and enrollment limit.
