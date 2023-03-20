@@ -922,3 +922,16 @@ Example:
 let myElement = document.getElementById("myId");
 let myAttribute = myElement.getAttribute("class");
 ```
+
+# Tasks
+
+1. Declare a variable called myName and assign your name to it. Use console.log() to display the value of the variable in the console.
+2. Declare a function called addNumbers that takes two parameters and returns the sum of the two parameters. Call the function with two numbers of your choice and display the result in the console.
+3. Declare an array called myArray with five elements. Use a loop to iterate over the array and display each element in the console.
+4. Create a new HTML file with a button and a paragraph element. Write a JavaScript function that changes the text inside the paragraph element to "Hello, world!" when the button is clicked.
+5. Declare an object called myObject with three properties: name, age, and city. Use dot notation to access each property and display its value in the console.
+6. Write a function called reverseString that takes a string as a parameter and returns the reversed string. For example, if the input is "hello", the function should return "olleh".
+7. Declare an array called numberArray with ten random numbers. Write a function called getSum that takes an array as a parameter and returns the sum of all the elements in the array.
+8. Write a function called findLargest that takes an array of numbers as a parameter and returns the largest number in the array.
+9. Create an HTML form with two input fields and a button. When the button is clicked, write a JavaScript function that retrieves the values of the input fields and displays them in a paragraph element.
+10. Write a function called isPalindrome that takes a string as a parameter and returns true if the string is a palindrome and false otherwise. A palindrome is a word that is spelled the same way forwards and backwards (e.g., "racecar").
