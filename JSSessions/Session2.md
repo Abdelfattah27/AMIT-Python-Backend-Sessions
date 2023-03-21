@@ -36,7 +36,6 @@ var was the only keyword used for declaring variables in JavaScript before ES6 (
 For example:
 
 ```javascript
-Copy code
 function foo() {
   var x = 1;
   console.log(x); // Output: 1
