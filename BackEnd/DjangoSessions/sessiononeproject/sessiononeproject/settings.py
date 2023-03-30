@@ -66,7 +66,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+'''
+middleware is a way to add extra functionality to the request/response processing flow. Middleware sits between the web server and your view and can perform various tasks such as authentication, caching, compression, or modifying response headers.
 
+When a request is made to a Django application, it passes through a sequence of middleware components before it reaches the view. Each middleware component can either modify the request, modify the response, or pass the request along to the next middleware in the chain.
+
+The MIDDLEWARE setting in Django is a list of middleware classes that are used by your application in the order they are listed. Each middleware component in the list has a specific task to perform. Here's a brief description of the default middleware classes listed in your example:
+
+django.middleware.security.SecurityMiddleware: adds security features to the request/response processing flow, such as setting various HTTP headers to protect against common web application vulnerabilities.
+django.contrib.sessions.middleware.SessionMiddleware: provides session support for your application, allowing you to store session data between requests.
+django.middleware.common.CommonMiddleware: provides various HTTP-related features, such as setting the Content-Type header and handling redirects.
+django.middleware.csrf.CsrfViewMiddleware: provides Cross Site Request Forgery (CSRF) protection for your application.
+django.contrib.auth.middleware.AuthenticationMiddleware: provides authentication support for your application, allowing users to log in and out and access protected resources.
+'''
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
