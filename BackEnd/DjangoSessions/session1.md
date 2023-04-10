@@ -9,8 +9,6 @@
 - django overview
 - django commends
 - create hello world end point
-- orm overview
-- create a student class and map it to databases
 
 ## intro to network and osi model
 
