@@ -1,3 +1,236 @@
+# Class based view
+
+1. A class-based view for retrieving all students and returning them as a JSON response:
+
+```python
+from django.http import JsonResponse
+from django.views import View
+from myapp.models import Student
+
+class StudentListView(View):
+    def get(self, request):
+    students = Student.objects.all()
+    data = list(students.values())
+    return JsonResponse(data, safe=False)
+```
+
+In this example, we define a class-based view called StudentListView that inherits from the View class. We then define a get() method that retrieves all Student objects using the objects.all() method, converts them to a list of dictionaries using the values() method, and creates a JSON response using the JsonResponse class.
+
+The safe=False argument in JsonResponse allows the serialization of objects that are not lists or dictionaries.
+
+2. A class-based view for creating a new student and returning a JSON response:
+
+```python
+from django.http import JsonResponse
+from django.views import View
+from myapp.models import Student
+
+class CreateStudentView(View):
+    def post(self, request):
+    name = request.POST.get('name', '')
+    age = request.POST.get('age', '')
+    student = Student(name=name, age=age)
+    student.save()
+    data = {'status': 'success', 'id': student.id, 'name': student.name, 'age': student.age}
+    return JsonResponse(data)
+```
+
+In this example, we define a class-based view called CreateStudentView that inherits from the View class. We then define a post() method that retrieves the name and age of the new student from the request using the request.POST.get() method, creates a new Student object with the given name and age, saves it to the database using the save() method, creates a dictionary called data with keys for the new student's id, name, and age, as well as a key called status with a value of 'success', and returns a JSON response using the JsonResponse class.
+
+3. A class-based view for deleting a student based on their ID:
+
+```python
+from django.http import JsonResponse
+from django.views import View
+from myapp.models import Student
+
+class DeleteStudentView(View):
+    def delete(self, request, student_id):
+        try:
+            student = Student.objects.get(id=student_id)
+            student.delete()
+            data = {'status': 'success'}
+        except Student.DoesNotExist:
+            data = {'status': 'error', 'message': 'Student not found'}
+            return JsonResponse(data, status=404)
+        return JsonResponse(data)
+```
+
+In this example, we define a class-based view called DeleteStudentView that inherits from the View class. We then define a delete() method that attempts to retrieve the Student object with the given student_id using the objects.get() method. If the student exists, we delete it using the delete() method and create a dictionary called data with a key called status and a value of 'success'.
+
+If the student does not exist, we create a dictionary called data with a key called status and a value of 'error', as well as a key called message with a value of 'Student not found'.
+
+Finally, we return a JsonResponse object that takes the data dictionary as its argument. If the student is successfully deleted, this will convert the dictionary to a JSON string and return it as the response with a 200 status code. If the student is not found, it will return a JSON response
+
+4. A class-based view for Read a student based on their ID:
+
+```python
+from django.http import JsonResponse
+from django.views import View
+from myapp.models import Student
+
+class StudentDetailView(View):
+    def get(self, request, id):
+        try:
+            student = Student.objects.get(id=id)
+            data = {
+                'name': student.name,
+                'age': student.age,
+                'gender': student.gender,
+                # add more fields as necessary
+            }
+            return JsonResponse(data, status=200)
+        except Student.DoesNotExist:
+            return JsonResponse({'error': 'Student does not exist'}, status=404)
+```
+
+In this example, we define a class StudentDetailView that extends the built-in Django View class. We override the get method to handle GET requests to this view.
+
+We use the try-except block to catch the case where the requested Student object does not exist in the database. If the Student object does exist, we create a dictionary data that contains the desired fields and their values. Finally, we return a JSON response containing the data dictionary with a status code of 200. 5. A class-based view for Update a student based on their ID:
+
+```python
+from django.http import JsonResponse
+from django.views import View
+from myapp.models import Student
+import json
+
+class StudentUpdateView(View):
+    def put(self, request, id):
+    try:
+        student = Student.objects.get(id=id)
+        data = json.loads(request.body)
+        student.name = data.get('name', student.name)
+        student.age = data.get('age', student.age)
+        student.gender = data.get('gender', student.gender) # add more fields as necessary
+        student.save()
+        response_data = {
+        'message': f'Student with id {student.id} updated successfully',
+        }
+        return JsonResponse(response_data, status=200)
+    except Student.DoesNotExist:
+        return JsonResponse({'error': 'Student does not exist'}, status=404)
+```
+
+We override the put method to handle PUT requests to this view. We first try to retrieve the Student object with the specified id from the database. If the object exists, we parse the request body as JSON and update the fields of the Student object with the new data.
+
+Finally, we save the updated Student object and return a JSON response indicating that the update was successful. If the Student object does not exist, we return a JSON response with an error message and a status code of 404.
+
+## Admin Dashboard
+
+To access the Django Admin Dashboard, you need to create a superuser by running the following command in the terminal:
+
+```python
+python manage.py createsuperuser
+```
+
+Enter the required data to create the superuser. Then, start the Django development server by running the following command:
+
+```python
+python manage.py runserver
+```
+
+Now, you can access the Admin Dashboard by visiting http://localhost:8000/admin in your web browser. You can perform CRUD (Create, Read, Update, Delete) operations from this dashboard.
+
+Users
+You can create a user from the dashboard.
+
+Groups
+You can create groups of users (teams) that differ in permissions. You can add users to groups.
+
+admin.py
+
+```python
+from product.models import Product, Category
+from django.contrib import admin
+
+admin.site.register(Product)
+admin.site.register(Category)
+```
+
+In the admin.py file, we are importing the Product and Category models from the product application and registering them with the admin site to make them available in the Admin Dashboard.
+
+models.py
+
+```python
+class Category(models.Model):
+name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'categories'
+
+class Product(models.Model):
+name = models.CharField(max_length=100)
+price = models.IntegerField()
+category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'products'
+```
+
+In the models.py file, we are defining two models: Category and Product.
+
+Category: It has a name field and a **str** method to return the name of the category. We are also defining a Meta class to set the database table name to 'categories'.
+Product: It has a name, price, and category field. The category field is a foreign key to the Category model. We are defining a **str** method to return the name of the product. We are also defining a Meta class to set the database table name to 'products'.
+Now, you can add products using the GUI at http://localhost:8000/admin.
+
+To use classes instead of functions, we need to modify the admin.py file:
+
+admin.py (class-based views)
+
+```python
+from product.models import Product, Category
+from django.contrib import admin
+
+def increase_price(modeladmin, request, queryset):
+    for i in range(0, len(queryset)):
+        queryset[i].price = queryset[i].price + 100
+        queryset[i].save()
+
+increase_price.short_description = 'Increase price by 100'
+
+class ProductTabular(admin.TabularInline):
+    model = Product
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'price', 'category']
+    list_editable = ['price', 'category']
+    ordering = ['-price']
+    list_filter = ['category', 'price']
+    search_fields = ['name__startswith', 'price__lte']
+    list_per_page = 1
+    actions = [increase_price]
+    fieldsets = (
+        ('Description', {
+            'fields': (('name', 'price'), ('category')),
+            'classes': ('collapse',)
+        }),
+        ('Categories', {
+            'classes': ('collapse',),
+            'fields': ['category']
+        })
+    )
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+inlines = [ProductTabluar] # to show the relation (products in this Category)
+
+list_display = ['name'] # what data appears in dashboard (outer view of the table)
+
+search_fields = ['name'] # search for categories by name
+
+class Meta:
+	db_table = 'categories'
+```
+
+This is a basic example of how to use the admin dashboard in Django to perform CRUD operations on your models. You can customize the dashboard by modifying the `admin.py` file, as shown in the example.
+
 ## Form Validation
 
 Form validators are used to validate data that is submitted through HTML forms before processing it in the backend. In Django, you can define validators for each form field using the validators attribute. In this example, we will create a User form that contains several fields and apply validation constraints to them.
@@ -59,355 +292,3 @@ class UserView(View):
 ```
 
 We also define the check_mark and check_first_name functions in forms.py and add them to the respective fields in the UserForm class. The check_mark function checks if the mark is greater than 0, and the check_first_name function checks if the first name does not start with the letter "M".
-
-# Templates
-
-## Templates : it's the DTL - django teplates language - it supports
-
-    1. inheretance **totally ot partially**
-    2. filters
-    3. tags
-    4. variables
-    5. comments
-
-## DTL
-
-    Engine it does
-        1. loading : loading static files like html
-        2. render : render the context and variables
-
-### variables
-
-    {{x}}
-
-## Filter
-
-    {{varibleName|filter : v1 v2  v3}}
-    1. defalut          >   {{ name | default: "hamada" }}
-    2. length           >   {{ name | length }}
-    3. filesizeformat   >   {{ name | filesizeformat }} // change the number to file size format to be readed
-    4. add              >   {{ num  | add : 2 }} // add number or concatinate two strings
-    5. capfirst         >   {{ name | capfirst }} // make the first letter capitilize
-    6. cut              >   {{ name | cut:" " }} // delete all spaces from the name
-    7. date             >   {{ date | date:"D" }}
-        D > short day
-        l > long day
-        d > day of the month
-        j > day of the month wothout leading zeros
-        m > month 2 digits with leading zero
-        n > without leading zeros
-        M > 3 letters from month
-        F > full month
-        y > 2 digits from year
-        Y > 4 digits from year
-    8. floatformat      > {{ number| floatformat }}
-    9. upper            > {{ name  | upper }}
-    10. lower           > {{ name  | lower }}
-    11. random          > {{ name  | random }}
-    12. slice           > {{ name  | slice:"0:2" }}
-
-## tags
-
-    1. extends          > {% extends "index.html" %}
-    2. include          > {% include "part.html" %}
-    3. block            > {% block blockname %} {% end block blockname %}
-    4. load static      > {% load static %}
-    5. static "url"     > {% static "url" %}
-
-in forms.py
-
-```python
-from django import forms
-
-from student.models import Student
-from django.forms import ValidationError
-
-def check_first_name(value):
-	if value[0] == 'm':
-		raise ValidationError('m is forbidden')
-def check_age(value) :
-    if value < 0 or value > 100 :
-        raise ValidationError('age must be between 0 to 100')
-
-class StudentForm(forms.ModelForm) :
-    first_name= forms.CharField(max_length=50 , validators=[check_age])
-    last_name = forms.CharField(max_length=50)
-    age = forms.IntegerField()
-    email = forms.EmailField(max_length=70)
-    url = forms.URLField(max_length= 100)
-    class Meta :
-        fields = "__all__"
-        model = Student
-```
-
-in views.py
-
-```python
-from django.shortcuts import render , redirect
-from django.views import View
-
-from student.forms import StudentForm
-from .models import Student
-import json
-# Create your views here.
-class StudentView(View) :
-    def get(self , request , *args, **kwargs)  :
-        data = list(Student.objects.values())
-        return render(request , "index.html" , {'data': data})
-
-def update(request , id) :
-
-    if request.method == "GET" :
-        data = Student.objects.filter(id=id).values()[0]
-        return render(request  , "update.html" , data)
-    elif request.method == "POST" :
-        try :
-            print(request.POST.dict()  )
-            inst = Student.objects.filter(id = id)[0]
-            form = StudentForm(request.POST.dict()   , instance=inst)
-            if form.is_valid() :
-                form.save()
-                return redirect("/student")
-            else :
-                print(form.errors)
-                return redirect("/update/" + str(inst.id))
-        except Exception as ex :
-            print(str(ex))
-            return redirect("/student")
-def remove(request , id) :
-    if request.method == "GET" :
-        print("hello get")
-        return render(request , "delete.html" , Student.objects.filter(id = id).values()[0])
-    elif request.method == "POST":
-        print("hello post")
-        Student.objects.filter(id = id).delete() ;
-        return redirect("/student")
-def add(request) :
-    if request.method == "GET" :
-        return render(request , "add.html")
-    elif request.method == "POST" :
-        try :
-            form = StudentForm(request.POST.dict())
-            if form.is_valid() :
-                form.save()
-                return redirect("/student")
-            else :
-                print(form.errors)
-                return redirect("/add")
-        except Exception as ex :
-            print(str(ex))
-            return redirect("/student")
-
-
-def delete(request , id) :
-    Student.objects.filter(id = id).delete()
-    return redirect("student/")
-
-```
-
-in templates
-1 - add.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <form action="/add" method="post">
-      {% comment %} {% csrf_token %} {% endcomment %}
-      <div class="form-group">
-        <label for="first_name">first_name</label>
-        <input class="form-control" type="text" name="first_name" />
-        <label for="last_name">last_name</label>
-        <input class="form-control" type="text" name="last_name" />
-        <label for="age">age</label>
-        <input class="form-control" type="number" name="age" />
-        <label for="url">url</label>
-        <input class="form-control" name="url" type="text" />
-        <label for="exampleInputEmail1">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          name="email"
-        />
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your email with anyone else.</small
-        >
-      </div>
-
-      <button
-        type="submit"
-        class="btn btn-primary d-flex justify-content-center align-items-center"
-      >
-        Submit
-      </button>
-    </form>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
-```
-
-2. delete.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <form action="/delete/{{id}}" method="post">
-      <label>Are you sure you want to delete this student ? </label>
-      <button class="btn btn-danger" type="submit">Delete</button>
-      <button class="btn btn-primary" type="submit">
-        <a href="/student">Cancel</a>
-      </button>
-    </form>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
-```
-
-3. index.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-
-    <title>Document</title>
-  </head>
-  <body>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>first name</th>
-          <th>last name</th>
-          <th>age</th>
-          <th>email</th>
-          <th>url</th>
-          <th>update</th>
-          <th>delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in data %}
-        <tr>
-          <td>{{ i.first_name }}</td>
-          <td>{{ i.last_name }}</td>
-          <td>{{ i.age }}</td>
-          <td>{{ i.email }}</td>
-          <td>{{ i.url }}</td>
-          <td> <button class="btn btn-primary"><a href="/update/{{i.id}}">Update<a/></button></td>
-          <td> <button class="btn btn-danger"><a href="/delete/{{i.id}}">Delete<a/></button></td>
-        </tr>
-         {% endfor %}
-      </tbody>
-    </table>
-    <button class="btn btn-secondary"><a href="/add">ADD</a></button>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
-```
-
-    4. update.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-
-    <title>Document</title>
-  </head>
-  <body>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>first name</th>
-          <th>last name</th>
-          <th>age</th>
-          <th>email</th>
-          <th>url</th>
-          <th>update</th>
-          <th>delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in data %}
-        <tr>
-          <td>{{ i.first_name }}</td>
-          <td>{{ i.last_name }}</td>
-          <td>{{ i.age }}</td>
-          <td>{{ i.email }}</td>
-          <td>{{ i.url }}</td>
-          <td> <button class="btn btn-primary"><a href="/update/{{i.id}}">Update<a/></button></td>
-          <td> <button class="btn btn-danger"><a href="/delete/{{i.id}}">Delete<a/></button></td>
-        </tr>
-         {% endfor %}
-      </tbody>
-    </table>
-    <button class="btn btn-secondary"><a href="/add">ADD</a></button>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
-```
-
-[**Link the Repo**](https://github.com/Abdelfattah27/CRUDOdsDjangoTemplates)

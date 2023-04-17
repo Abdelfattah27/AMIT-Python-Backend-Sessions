@@ -19,5 +19,8 @@ from students import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("hamada/" , views.say_hello )
+    path("student/" , views.students) , 
+    path("student/<int:id>" , views.student) , 
+    path("" , views.render_html)
 ]
+

@@ -8,6 +8,8 @@ class Student (models.Model) :
     birth_data = models.DateField(auto_now_add=True)
     email = models.EmailField(null=False , blank=False , unique=True)
     password = models.CharField(max_length=100)
+    def __str__(self)  : 
+        return self.name
     class Meta : 
         constraints = [
             models.CheckConstraint(check=models.Q(GPA__lte = 4) , name="gpa must be less than 4")
@@ -51,7 +53,7 @@ class Product (models.Model) :
     price = models.FloatField(null=False , blank=False) 
     count_in_stock = models.IntegerField(default=0 , null=False ,blank=False)
     created_at = models.DateTimeField(auto_now_add=True )
-    user = models.ForeignKey(User , on_delete=models.SET_NULL)
+    user = models.ForeignKey(User , on_delete=models.SET_NULL, null=True)
 
 class Review (models.Model) : 
     product = models.ForeignKey(Product , on_delete=models.CASCADE)

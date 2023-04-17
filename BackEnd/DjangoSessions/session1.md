@@ -124,11 +124,3 @@ python manage.py mycommand --name John
 ```
 
 In this case, the name argument would be passed to the handle() method as a keyword argument with the value 'John'.
-
-## ORM
-
-ORM stands for Object-Relational Mapping, which is a technique used to map data from a relational database to objects in an object-oriented programming language. Essentially, it provides a way for developers to interact with a database using the language constructs of their programming language, rather than having to write SQL queries directly.
-
-The main advantage of using an ORM is that it can make database interactions much easier and more intuitive for developers, by allowing them to work with objects and methods rather than raw SQL queries. This can lead to faster development times, easier maintenance, and fewer errors.
-
-ORMs also provide a level of abstraction between the application code and the database, which can help with portability and scalability. Because the ORM handles the translation between the database schema and the application's object model, changes to the database schema can be made without requiring changes to the application code. This can make it easier to scale the application by adding additional database servers or changing the underlying database technology.
