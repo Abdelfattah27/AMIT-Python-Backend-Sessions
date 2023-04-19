@@ -12,7 +12,8 @@ class Student (models.Model) :
         return self.name
     class Meta : 
         constraints = [
-            models.CheckConstraint(check=models.Q(GPA__lte = 4) , name="gpa must be less than 4")
+            models.CheckConstraint(check=models.Q(GPA__lte = 4) , name="gpa must be less than 4") , 
+            models.CheckConstraint(check=models.Q(age__gte = 0) , name="Age is positive")
         ] 
         db_table = "student"
 

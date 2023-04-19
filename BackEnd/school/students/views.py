@@ -1,12 +1,56 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import JsonResponse
 from django.views import View
 from .models import Student
 import json
+from .forms import StudentForm , StudentUpdateForm
+from django.utils import timezone
 # Create your views here.
 
+def delete_student(request , id) : 
+    if request.method == "GET" : 
+        return render(request , "delete.html" , {"id" : id})
+    elif request.method == "POST" : 
+        Student.objects.get(id = id).delete() 
+        return redirect("/student/index")
+    
+
+def add_student(request) : 
+    if request.method == "GET" :
+        return render(request , "create.html")
+    
+    elif request.method == "POST" : 
+        data = request.POST.dict() # json.loads(request.body)
+        form = StudentForm(data= data)
+        if form.is_valid() :
+            form.save()
+            return redirect("/student/index/")
+
+        else : 
+        
+            return render(request , "create.html" , {"form" : form})
+        
+def update_student(request , id) : 
+    if request.method == "GET" :
+        student = Student.objects.filter(id = id).values()[0] 
+        return render(request , "update.html" , {"student" : student })
+    
+    elif request.method == "POST" : 
+        data = request.POST.dict() # json.loads(request.body)
+        inst = Student.objects.get(id = id)
+        form = StudentUpdateForm(data= data , instance=inst )
+        if form.is_valid() :
+            form.save()
+            return redirect("/student/index/")
+           
+        else : 
+            return render(request , "create.html" , {"form" : form})
+       
+        
+        
 def hamada (request) : 
-    return render( request , "index.html" , {"name" : "ahmed"})
+    data = list(Student.objects.values())
+    return render( request , "index.html" , {"students" :data})
 
 
 class GetAllStudents(View) :
@@ -15,9 +59,15 @@ class GetAllStudents(View) :
         all_students = list(all_students.values())
         return JsonResponse({"data" : all_students})
     def post(self , request) :
-        data = json.loads(request.body)
-        Student.objects.create(**data)
-        return JsonResponse({"status":"created successfully"})  
+        data = request.POST.dict() # json.loads(request.body)
+        form = StudentForm(data = data)
+        if form.is_valid() :
+            form.save()
+            return JsonResponse({"data" : form.data})
+        else : 
+            return JsonResponse({"error" : form.errors})
+        # Student.objects.create(**data)
+        # return JsonResponse({"status":"created successfully"})  
 class URDStudent(View):
     def get(self , request , id) :
         getted_student = Student.objects.filter(id = id).values()[0]
