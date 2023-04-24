@@ -12,25 +12,26 @@
    - what meant by MTV
    - django commends
    - django models
+3. rest of Models and Views
    - Constrains and relations
    - Validators
-3. Views
    - Functional View
+4. rest of views
    - Class based View
    - Admin Dashboard
-4. Templated
    - Form Validation
+5. Templates
    - Templates
    - CRUD Ops using Templates
-5. MiddleWares
-   - Middlewares and authentication using django and complete the project
-   - Authentication using knoks
-   - Authentication using simpleJWT
-   - Authentication using JWT and custom middleware classes
 6. RestFramework
+   - enhancement of CRUD ops
    - Serializers
    - APIView
    - Mixins Views
    - Generic Views
    - Functional API View
-7. 7, 8 are extra sessions for complete what we have missed
+7. Tics and Tricks
+   - django signals
+   - virtual environment
+   - authentication
+8. Project
