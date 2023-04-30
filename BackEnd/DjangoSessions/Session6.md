@@ -307,44 +307,6 @@ class Meta:
 
 In the above example, we define a serializer class UserSerializer that inherits from serializers.ModelSerializer. We also define the model that this serializer is based on, and the fields we want to serialize. We use extra_kwargs to specify that the password field should be write-only (i.e., it should not be returned in the serialized response).
 
-## Custom Attributes
-
-Sometimes you may want to add additional attributes to the serialized response that are not part of the model. Here's an example of how to add a custom attribute to the UserSerializer:
-
-```python
-class UserSerializer(serializers.ModelSerializer):
-    full_name = serializers.SerializerMethodField()
-
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'password', 'full_name']
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def get_full_name(self, obj):
-        return f'{obj.first_name} {obj.last_name}'
-```
-
-In the above example, we've added a custom attribute full_name to the UserSerializer that combines the first_name and last_name fields of the User model.
-
-## Validations
-
-Serializers also allow you to validate incoming data and raise errors if the data does not meet certain criteria. Here's an example of how to add a validation check to the UserSerializer:
-
-```python
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'password']
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def validate_email(self, value):
-        if 'example.com' in value:
-            raise serializers.ValidationError("Email domain not allowed.")
-        return value
-```
-
-In the above example, we're adding a validation check to the email field of the UserSerializer. If the email domain is "example.com", we raise a serializers.ValidationError.
-
 ## Example Of Code
 
 in models.py
