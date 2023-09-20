@@ -747,7 +747,7 @@ Padding is often used to create spacing and improve the aesthetics of elements. 
  -->
 
 
-# 4. Display Property (30 minutes)
+# Display Property
 
 ## Introduce the `display` property and its values (block, inline, inline-block, none, etc.)
 
@@ -915,9 +915,6 @@ In this example, elements with display: inline-block; combine characteristics of
 
 
 # Width and Height 
-
-
-
 
 ## Discuss the importance of setting width and height for elements
 
