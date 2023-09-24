@@ -711,23 +711,3 @@ Code:
 ```
 
 This media query detects high-resolution screens and serves images optimized for Retina displays.
-
-### Example 5: Adapting Grid Layouts
-Objective: Modify grid layouts for improved responsiveness.
-
-Code:
-
-```css
-/* Default grid layout for larger screens */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-/* Media query for screens up to 768px wide */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-```
