@@ -86,3 +86,7 @@ The key difference is that in the Vanilla JavaScript example, you provide a sequ
 - run react without react-app
 - append() , reactDOM 
 - call a function
+
+
+- props
+- create multiple elements in array of data
