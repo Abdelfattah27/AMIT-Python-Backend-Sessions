@@ -514,10 +514,11 @@ let's compare React and vanilla JavaScript by creating a simple counter componen
 
 ### Disadvantages:
 
-- Lack of Structure:
+1. Lack of Structure:
     As the application grows, managing state and UI updates becomes more complex and error-prone.
-- Limited Reusability:
+2. Limited Reusability:
     Reusing this code in other parts of the application or in different projects would require significant refactoring.
+
 
 #### More Details about Disadvantages:
 ##### Reusability
