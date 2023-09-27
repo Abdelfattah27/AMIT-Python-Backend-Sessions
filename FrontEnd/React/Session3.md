@@ -8,3 +8,4 @@
 - how to run react without create react app 
 - difference between .append() , reactDOM 
 - how to call a function 
+ 
