@@ -1,45 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login Logout Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        body{
-            background-color: antiquewhite;
+        * {
+            padding: 0px;
+            margin: 0px;
         }
-        h3{
+        body{
+            font-family: sans-serif;
+            background-image: url("https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg");
+        }
+        .container{
+            background-color: burlywood;
             text-align: center;
-            text-decoration: none;
-            color:black;
-            text-transform: capitalize;
-            line-height:50px ;
-            text-shadow: 1px 1px 10px black;
-            display: block;
-            background-color: aquamarine;
-            padding: 10px;
-            margin :10px ;
-            border: 3px solid black;
-           
-           
+            width: 500px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .header-container *{
+            padding-bottom: 15px;
+
+        }
+
+        .heading-description{
+            display: inline-block;
+        }
+        .heading1 {
+            margin-top: 50px;
+        }
+
+        hr {
+            color: brown;
+            background-color: brown;
+            height: 2px;
+            border: 1px solid brown;
+            margin: 20px;
+        }
+        h2 {
+            font-size: 30px;
+            margin: 20px
+        }
+        img { 
+            margin-bottom: 20px;
+        }
+        .item {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .item-name{
+            display: inline-block;
+            text-align: left;
+            width: 300px;
+        }
+        .item-price {
+            display: inline-block;
+            text-align: right;
+            width: 150px;
+        }
+        .footer-container{
+            margin-top: 30px;
+        }
+        .footer-container * {
+            margin: 10px;
+        }
+        .footer-link{
+            color: black;
+        }
+        .footer-link:hover{
+            color: brown;
+        }
+        .group-name{
+            font-style: italic;
         }
 
     </style>
 </head>
 <body>
-    <form>
-        <h3>login here</h3>
+    <div class="container">
+        <header class="header-container" >
+            <h1 class="heading1">AMIT Cafee</h1>
+            <em class="heading-description">EST. 2023</em>
+        </header>
+        <hr class="first-hr">
+        <main>
+            <section class="wrapper">
+                <article class="service">
+                    <h2>Cofee</h2>
+                    <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/coffee.jpg" alt="Cofee ">
+                    <div class="item"><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item"><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item"><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item"><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item"><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                </article>
 
-        <label for="username">Username</label>
-        <input type="text"  id="username">
-
-        <label for="password">Password</label>
-        <input type="password" id="password">
-
-        <button type="submit">Log In</button>
-        <div >
-          <div >  Google</div>
-          <div>  Facebook</div>
-        </div>
-    </form>
+                <article class="service">
+                    <h2>Desserts</h2>
+                    <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/pie.jpg" alt="Cofee ">
+                    <div class="item" ><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item" ><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item" ><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item" ><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                    <div class="item" ><span class="item-name">French Vanilla</span> <span class="item-price">3.00</span></div>
+                </article>
+            </section>
+        </main>
+        <hr>
+        <footer class="footer-container">
+            <a class="footer-link" href="https://www.google.com">visit our website</a>
+            <p class="group-name">PHP 111 Online</p>
+        </footer>
+</div>
+   
 </body>
 </html>
