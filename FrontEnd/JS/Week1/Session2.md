@@ -485,5 +485,54 @@ Steven wants to build a very simple tip calculator for whenever he goes eating i
 const bill = 430;
 const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
 ```
+
+
+## Tasks
+
+### Basic If Statement:
+
+Write a JavaScript program that checks if a given number is even. If it is, log "The number is even" to the console; otherwise, log "The number is odd."
+
+### If-Else Statement:
+
+Create a program that takes a user's age as input and determines whether they are eligible to vote. If the age is 18 or above, log "You are eligible to vote," otherwise, log "You are not eligible to vote."
+
+### Nested If-Else:
+
+Write a script that asks the user for two numbers and checks if the first number is divisible by the second number. If it is, display "Number 1 is divisible by Number 2," otherwise, display "Number 1 is not divisible by Number 2."
+
+<!-- ### Ternary Operator for Minimum Value:
+
+Given two numbers, use the ternary operator to find and display the smaller of the two numbers.
+ -->
+
+### Grade Calculator:
+
+Create a program that calculates a student's letter grade based on their numeric grade. Use if-else statements to assign grades such as 'A', 'B', 'C', 'D', or 'F' based on the numeric input.
+
+<!--
+### Ternary Operator for Age Group:
+
+Ask the user for their age and use the ternary operator to categorize them into "Child" (0-12), "Teen" (13-19), "Adult" (20-59), or "Senior" (60 and above). 
+-->
+
+<!-- 
+### Password Strength Checker:
+
+Write a function that checks the strength of a user's password. Use if statements to classify passwords as "Weak," "Medium," or "Strong" based on their complexity (e.g., length, presence of special characters, numbers, and uppercase letters). 
+-->
+
+### Traffic Light Simulation:
+
+Simulate a traffic light using JavaScript. Use if-else statements to control the state of the traffic light and display "Red," "Yellow," or "Green" based on the current state.
+
+### User Authentication:
+
+Implement a simple user authentication system where the user provides a username and password. Use if-else statements to check if the provided credentials match a predefined set of values and log "Access Granted" or "Access Denied" accordingly.
+
+### Product Discount Calculator:
+
+Create a program that calculates the final price of a product after applying a discount. Use if-else statements to check the discount amount based on the original price and the customer's membership status.
 
