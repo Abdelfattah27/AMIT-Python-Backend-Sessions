@@ -318,7 +318,7 @@ if (abdelfattah[interestedIn]) {
 }
 
 abdelfattah.location = 'Portugal';
-abdelfattah['twitter'] = '@abdelfattahschmedtman';
+abdelfattah['twitter'] = '@abdelfattah';
 console.log(abdelfattah);
 
 // Challenge
