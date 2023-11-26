@@ -152,11 +152,11 @@ if not x == y:
 logical operators use short-circuit evaluation. This means that if the first operand of an and expression evaluates to False, the second operand is not evaluated, because the entire expression will always be False. Similarly, if the first operand of an or expression evaluates to True, the second operand is not evaluated, because the entire expression will always be True.
 
 ```python
-def divide(x, y):
-    if y != 0 and x / y > 2:
-        return "x is more than twice y"
-    else:
-        return "y is either zero or x is less than or equal to twice y"
+
+if y != 0 and x / y > 2:
+    return "x is more than twice y"
+else:
+    return "y is either zero or x is less than or equal to twice y"
 
 print(divide(10, 3))
 print(divide(10, 5))

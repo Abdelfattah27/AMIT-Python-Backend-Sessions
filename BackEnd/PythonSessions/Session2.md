@@ -111,6 +111,199 @@ print(message)
 
 ### String Operations
 
+```python 
+
+# capitalize
+string = "hello world"
+capitalized_string = string.capitalize()
+print(capitalized_string)  # "Hello world"
+
+# casefold
+string = "HELLO World"
+casefolded_string = string.casefold()
+print(casefolded_string)  # "hello world"
+
+# center
+string = "Python"
+centered_string = string.center(10, '*')
+print(centered_string)  # "**Python**"
+
+# count
+string = "programming is fun, programming is cool"
+count_occurrences = string.count("programming")
+print(count_occurrences)  # 2
+
+
+# endswith
+string = "Hello, World!"
+ends_with_result = string.endswith("World!")
+print(ends_with_result)  # True
+
+# expandtabs
+string = "Hello\tWorld"
+expanded_string = string.expandtabs(10)
+print(expanded_string)  # "Hello   World"
+
+# find
+string = "Hello, World!"
+index = string.find("World")
+print(index)  # 7
+
+# format
+name = "John"
+age = 25
+formatted_string = "My name is {}, and I am {} years old.".format(name, age)
+print(formatted_string)  # "My name is John, and I am 25 years old."
+
+
+# index
+string = "Hello, World!"
+index = string.index("World")
+print(index)  # 7
+
+# isalnum
+alphanumeric_string = "abc123"
+is_alnum = alphanumeric_string.isalnum()
+print(is_alnum)  # True
+
+# isalpha
+alpha_string = "abc"
+is_alpha = alpha_string.isalpha()
+print(is_alpha)  # True
+
+# isdecimal
+decimal_string = "123455"
+is_decimal = decimal_string.isdecimal()
+print("is dicimal : " , is_decimal)  # True
+
+# isdigit
+digit_string = "123"
+is_digit = digit_string.isdigit()
+print(is_digit)  # True
+
+
+# islower
+lower_string = "hello"
+is_lower = lower_string.islower()
+print(is_lower)  # True
+
+# isnumeric
+numeric_string = "123"
+is_numeric = numeric_string.isnumeric()
+print(is_numeric)  # True
+
+
+# isspace
+space_string = "   "
+is_space = space_string.isspace()
+print(is_space)  # True
+
+# istitle
+title_string = "Hello World"
+is_title = title_string.istitle()
+print(is_title)  # True
+
+# isupper
+upper_string = "HELLO"
+is_upper = upper_string.isupper()
+print(is_upper)  # True
+
+# join
+words = ["Hello", "World", "!"]
+joined_string = " ".join(words)
+print(joined_string)  # "Hello World !"
+
+# ljust
+string = "Hello"
+left_justified_string = string.ljust(10, '-')
+print(left_justified_string)  # "Hello-----"
+
+# lower
+string = "Hello World"
+lowered_string = string.lower()
+print(lowered_string)  # "hello world"
+
+# lstrip
+string = "   Hello World   "
+stripped_string = string.lstrip()
+print(stripped_string)  # "Hello World   "
+
+
+# partition
+string = "Hello, World!"
+partitioned_result = string.partition(", ")
+print(partitioned_result)  # ('Hello', ', ', 'World!')
+
+# removeprefix
+string = "Hello, World!"
+without_prefix = string.removeprefix("Hello, ")
+print(without_prefix)  # "World!"
+
+# removesuffix
+string = "Hello, World!"
+without_suffix = string.removesuffix(" World!")
+print(without_suffix)  # "Hello, "
+
+# replace
+string = "Hello, World!"
+replaced_string = string.replace("World", "Universe")
+print(replaced_string)  # "Hello, Universe!"
+
+# rfind
+string = "Hello, World!"
+index = string.rfind("o")
+print(index)  # 8
+
+# rindex
+string = "Hello, World!"
+index = string.rindex("o")
+print(index)  # 8
+
+# rjust
+string = "Hello"
+right_justified_string = string.rjust(10, '-')
+print(right_justified_string)  # "-----Hello"
+
+
+# rsplit
+string = "Hello, World!"
+split_result = string.rsplit(", ")
+print(split_result)  # ['Hello', 'World!']
+
+# rstrip
+string = "   Hello World   "
+stripped_string = string.rstrip()
+print(stripped_string)  # "   Hello World"
+
+# startswith
+string = "Hello, World!"
+starts_with_result = string.startswith("Hello")
+print(starts_with_result)  # True
+
+# strip
+string = "   Hello World   "
+stripped_string = string.strip()
+print(stripped_string)  # "Hello World"
+
+# swapcase
+string = "Hello, World!"
+swapped_case_string = string.swapcase()
+print(swapped_case_string)  # "hELLO, wORLD!"
+
+# title
+string = "hello world"
+title_case_string = string.title()
+print(title_case_string)  # "Hello World"
+
+
+# upper
+string = "hello world"
+upper_case_string = string.upper()
+print(upper_case_string)  # "HELLO WORLD"
+
+
+```
+
 1.  Concatenation
     You can concatenate strings using the + operator. For example:
 
