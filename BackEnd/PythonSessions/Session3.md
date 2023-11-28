@@ -136,30 +136,6 @@ The return statement tells the interpreter to return the value of sum to the cal
 
 ### List
 
-Lists are a fundamental data structure in Python that are used to store a collection of values. In this tutorial, we'll cover the basics of lists in Python, including how to create and manipulate them
-
-#### Creating Lists
-
-```python
-my_list = [1, 2, 3, 4, 5]
-nested_list = [[1, 2], [3, 4], [5, 6]]
-
-```
-
-#### Accessing List Elements
-
-```python
-my_list = [1, 2, 3, 4, 5]
-print(my_list[0])  # prints 1
-print(my_list[2])  # prints 3
-
-# Negative indexing
-
-print(my_list[-1])  # prints 5
-print(my_list[-3])  # prints 3
-
-```
-
 #### Slicing Lists
 
 ```python

@@ -1,55 +1,29 @@
 # Session 2
 
-## Python Loops
+### List
 
-### For Loops
+Lists are a fundamental data structure in Python that are used to store a collection of values. In this tutorial, we'll cover the basics of lists in Python, including how to create and manipulate them
 
-A for loop is used to iterate over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
-
-```python
-for variable in sequence:
-    # code to be executed for each item in sequence
-```
-
-#### The range() Function
-
-The range() function can be used to generate a sequence of numbers that can be used in a for loop. Here's the basic syntax for the range() function:
+#### Creating Lists
 
 ```python
-for x in range(5):
-    print(x)
-```
-
-### While Loops
-
-A while loop is used to repeatedly execute a block of code as long as a specified condition is true. Here's the basic syntax for a while loop:
-
-```python
-while condition:
-    # code to be executed while the condition is true
-```
-
-### break statement
-
-```python
-i = 0
-while i < 5:
-    print(i)
-    i += 1
-    if i == 3:
-        break
+my_list = [1, 2, 3, 4, 5]
+nested_list = [[1, 2], [3, 4], [5, 6]]
 
 ```
 
-### continue statement
+#### Accessing List Elements
 
 ```python
-i = 0
-while i < 5:
-    print(i)
-    i += 1
-    if i == 3:
-        continue
+my_list = [1, 2, 3, 4, 5]
+print(my_list[0])  # prints 1
+print(my_list[2])  # prints 3
+
+# Negative indexing
+
+print(my_list[-1])  # prints 5
+print(my_list[-3])  # prints 3
+
 ```
 
 ## Strings
@@ -109,7 +83,42 @@ You are {age} years old.
 print(message)
 ```
 
-### String Operations
+1.  Concatenation
+    You can concatenate strings using the + operator. For example:
+
+    ```python
+    first_name = 'John'
+    last_name = 'Doe'
+    full_name = first_name + ' ' + last_name
+    ```
+
+2.  Repetition
+    You can repeat a string multiple times using the \_ operator. For example:
+
+    ```python
+    my_string = 'hello '
+    my_string = my_string * 3
+
+    ```
+
+3.  Slicing
+    You can slice a string to obtain a specific portion of it. The syntax for slicing is string[start:stop:step], where start is the index of the first character you want to include, stop is the index of the first character you want to exclude, and step is the size of the jump between characters. For example:
+
+    ```python
+    my_string = 'hello world'
+    substring = my_string[0:5] # substring is set to 'hello'
+    ```
+
+4.  Length
+    You can find the length of a string using the len() function. For example:
+
+```python
+my_string = 'hello world'
+length = len(my_string) # length is set to 11
+```
+
+### string functions
+
 
 ```python 
 
@@ -139,10 +148,6 @@ string = "Hello, World!"
 ends_with_result = string.endswith("World!")
 print(ends_with_result)  # True
 
-# expandtabs
-string = "Hello\tWorld"
-expanded_string = string.expandtabs(10)
-print(expanded_string)  # "Hello   World"
 
 # find
 string = "Hello, World!"
@@ -265,11 +270,6 @@ right_justified_string = string.rjust(10, '-')
 print(right_justified_string)  # "-----Hello"
 
 
-# rsplit
-string = "Hello, World!"
-split_result = string.rsplit(", ")
-print(split_result)  # ['Hello', 'World!']
-
 # rstrip
 string = "   Hello World   "
 stripped_string = string.rstrip()
@@ -301,85 +301,63 @@ string = "hello world"
 upper_case_string = string.upper()
 print(upper_case_string)  # "HELLO WORLD"
 
-
 ```
 
-1.  Concatenation
-    You can concatenate strings using the + operator. For example:
 
-    ```python
-    first_name = 'John'
-    last_name = 'Doe'
-    full_name = first_name + ' ' + last_name
-    ```
 
-2.  Repetition
-    You can repeat a string multiple times using the \_ operator. For example:
+## Python Loops
 
-    ```python
-    my_string = 'hello '
-    my_string = my_string * 3
+### For Loops
 
-    ```
-
-3.  Slicing
-    You can slice a string to obtain a specific portion of it. The syntax for slicing is string[start:stop:step], where start is the index of the first character you want to include, stop is the index of the first character you want to exclude, and step is the size of the jump between characters. For example:
-
-    ```python
-    my_string = 'hello world'
-    substring = my_string[0:5] # substring is set to 'hello'
-    ```
-
-4.  Length
-    You can find the length of a string using the len() function. For example:
+A for loop is used to iterate over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
 
 ```python
-my_string = 'hello world'
-length = len(my_string) # length is set to 11
+for variable in sequence:
+    # code to be executed for each item in sequence
 ```
 
-### string functions
+#### The range() Function
+
+The range() function can be used to generate a sequence of numbers that can be used in a for loop. Here's the basic syntax for the range() function:
 
 ```python
-s = "The quick brown fox jumps over the lazy dog"
+for x in range(5):
+    print(x)
+```
 
-# Convert the string to uppercase
-s_upper = s.upper()
-print(s_upper)  # Output: "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
+### While Loops
 
-# Convert the string to lowercase
-s_lower = s.lower()
-print(s_lower)  # Output: "the quick brown fox jumps over the lazy dog"
+A while loop is used to repeatedly execute a block of code as long as a specified condition is true. Here's the basic syntax for a while loop:
 
-# Replace a substring with another substring
-s_replaced = s.replace("fox", "cat")
-print(s_replaced)  # Output: "The quick brown cat jumps over the lazy dog"
+```python
+while condition:
+    # code to be executed while the condition is true
+```
 
-# Count the occurrences of a substring
-s_count = s.count("o")
-print(s_count)  # Output: 4
+### break statement
 
-# Check if the string starts with a specific substring
-s_starts_with = s.startswith("The")
-print(s_starts_with)  # Output: True
-
-# Check if the string ends with a specific substring
-s_ends_with = s.endswith("dog")
-print(s_ends_with)  # Output: True
-
-# Split the string into a list of substrings
-s_split = s.split()
-print(s_split)  # Output: ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
-
-# Join a list of substrings into a single string
-s_join = "-".join(s_split)
-print(s_join)  # Output: "The-quick-brown-fox-jumps-over-the-lazy-dog"
-
-my_string = "Hello World!"
-# strip : Removes leading and trailing whitespace from a string.
-print(my_string.strip()) # Output: Hello World!
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+    if i == 3:
+        break
 
 ```
+
+### continue statement
+
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+    if i == 3:
+        continue
+```
+
+
 
 ## File Handling
 
