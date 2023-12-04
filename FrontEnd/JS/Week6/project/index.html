@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+:root{
+  --ff:'Poppins', sans-serif;
+  --transition: all 0.3s linear;
+  --clr-red:#ec3948;
+  --clr-blue:#43c1fc;
+  --clr-green:#39ec99;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #cdcdcd;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: var(--ff);
+}
+
+main{
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 35rem;
+  margin-top: 8rem;
+  background: #222;
+  color: #eee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+  padding: 1.2rem 2rem 1.8rem;
+}
+
+/* alert */
+.alert{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  padding: .5rem 0;
+  border-radius: .25rem;
+  font-size: .7rem;
+  text-align: center;
+  font-weight: bold;
+}
+.alert-danger {
+  color: #c0111f;
+  background-color: #f78d96;
+}
+.alert-success {
+  color: #0daa61;
+  background-color: #bce5d3;
+}
+
+.title{
+  text-align: center;
+  margin-bottom: .7rem;
+}
+.control{
+  display: flex;
+  justify-content: center;
+}
+
+#entry{
+  outline: none;
+  border: 1px solid #eee;
+  background: #222;
+  color: #eee;
+  border-radius: 0.5rem 0 0 0.5rem;
+  font-size: 1rem;
+  padding: 0.3rem 0.7rem;
+  flex: 1;
+  font-family: var(--ff);
+}
+.btn{
+  font-family: var(--ff);
+  font-weight: bold;
+}
+.submit-btn,.cancel-btn , .edit-btn{
+  outline: none;
+  border: 1px solid #eee;
+  background-color: #222;
+  color: #eee;
+  font-size: .9rem;
+  padding: 0.3rem 0.7rem;
+  flex: 0 0 .5rem;
+  cursor: pointer;
+  transition: background-color .2s,
+              color .2s;
+}
+.submit-btn:hover, edit-btn:hover,
+.cancel-btn:hover{
+  background-color: #eee;
+  color: #222;
+}
+
+.list-container{
+  margin-top: 2rem;
+}
+
+.list-item{
+  border-bottom:1px solid #eee;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem .9rem .5rem .4rem;
+}
+.text{
+  width: 80%;
+}
+
+.bx{
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+li.liChecked .text{
+  text-decoration: line-through;
+}
+li.liChecked .bx.bxs-edit{
+  visibility: hidden;
+}
+
+.bx.bxs-edit:hover{color:var(--clr-blue);}
+.bx.bx-check:hover{color:var(--clr-green);}
+.bx.bxs-trash:hover{color:var(--clr-red);}
+
+.clear-btn{
+  border:none;
+  outline: none;
+  border-radius: 0.5rem;
+  font-size: .9rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+
+  color: #c0111f;
+  background-color: #f78d96;
+
+  width: 10rem;
+  display: block;
+  margin: 1.2rem auto 0;
+}
+
+.v-none{
+  visibility: hidden ;
+}
+.d-none{
+  display: none;
+}
+
+    </style>
+</head>
+<body>
+    <main>
+        <form id="form" autocomplete="off">
+            <p class="alert"></p>
+            <h3 class="title">Todo List</h3>
+            <div class="control">
+                <input type="text" id="entry" placeholder="e.g. some stuffs">
+                <button type="submit" class="btn submit-btn">Submit</button>
+                <button type="button" class="btn edit-btn d-none">Edit</button>
+                <button type="button" class="btn cancel-btn d-none">Cancel</button>
+            </div>
+        </form>
+
+        <ul id="todo-list" class="list-container">
+            <!-- <li class="list-item">
+                <p class="text">Lorem ipsum dolor sit.</p>
+                <i class='bx bx-edit '>edit</i>
+                <i class='bx bx-check '>check</i>
+                <i class='bx bxs-trash '>delete</i>
+            </li> -->
+          
+        </ul>
+        <button class="btn clear-btn d-none">Clear Items</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

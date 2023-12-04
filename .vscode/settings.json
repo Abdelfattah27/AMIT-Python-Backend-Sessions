@@ -8,5 +8,6 @@
         "redeclared",
         "soaad",
         "typeof"
-    ]
+    ],
+    "liveServer.settings.port": 5502
 }
