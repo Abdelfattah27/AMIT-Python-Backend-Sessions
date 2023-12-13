@@ -1,5 +1,242 @@
 # Session 3
 
+
+## List , Dictionary Comprehensions
+
+
+### dictionary
+
+A dictionary is a collection of key-value pairs, where each key is associated with a value. In Python, dictionaries are created using curly braces {} or the dict() constructor.
+
+```python
+# Creating a dictionary
+my_dict = {'apple': 1, 'banana': 2, 'orange': 3}
+
+# Accessing values in a dictionary
+print(my_dict['apple']) # Output: 1
+print(my_dict.get('banana')) # Output: 2
+
+# Adding or modifying key-value pairs in a dictionary
+my_dict['pear'] = 4
+my_dict['banana'] = 5
+print(my_dict) # Output: {'apple': 1, 'banana': 5, 'orange': 3, 'pear': 4}
+
+# Removing key-value pairs from a dictionary
+del my_dict['orange']
+print(my_dict) # Output: {'apple': 1, 'banana': 5, 'pear': 4}
+
+# Iterating over a dictionary
+
+for key, value in my_dict.items():
+    print(key, value)
+
+for key in my_dict.keys():
+    print(key, my_dict[key])
+
+for key in my_dict:
+    print(key, my_dict[key])
+
+for value in my_dict.values():
+    print(value)
+
+
+# Create a new list of keys using a list comprehension
+keys = [key for key in my_dict]
+print(keys) # Output: ['apple', 'banana', 'orange']
+
+# Create a new list of values using a list comprehension
+values = [my_dict[key] for key in my_dict]
+print(values) # Output: [1, 2, 3]
+
+```
+
+#### string to dictionary
+
+##### json.loads
+
+This function is used to parse a JSON-formatted string and convert it into a Python object (usually a dictionary or list). The input to this function is a string, and the output is a Python object.
+
+```python
+import json
+
+json_str = '{"name": "John", "age": 30, "city": "New York"}'
+my_dict = json.loads(json_str)
+
+print(my_dict) # {'name': 'John', 'age': 30, 'city': 'New York'}
+
+```
+
+##### json.load
+
+This function is used to read JSON data from a file and convert it into a Python object. The input to this function is a file object (opened using open()), and the output is a Python object.
+
+```python
+import json
+
+# Open JSON file
+with open('data.json', 'r') as f:
+    # Parse JSON file into dictionary
+    data = json.load(f)
+
+# Print dictionary
+print(data)
+
+```
+## Set 
+`add(element)`
+
+Adds an element to the set.
+```python
+my_set = {1, 2, 3}
+my_set.add(4)
+print(my_set)  # Output: {1, 2, 3, 4}
+
+```
+
+`clear()`
+
+Removes all elements from the set.
+```python
+my_set = {1, 2, 3}
+my_set.clear()
+print(my_set)  # Output: set()
+
+```
+
+`copy()`
+
+Returns a shallow copy of the set.
+```python
+original_set = {1, 2, 3}
+new_set = original_set.copy()
+print(new_set)  # Output: {1, 2, 3}
+```
+
+`difference(iterable)`
+
+Returns the set of elements that are in the set but not in the specified iterable.
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result_set = set1.difference(set2)
+print(result_set)  # Output: {1, 2}
+```
+
+`difference_update(iterable)`
+
+Updates the set, removing elements found in the specified iterable.
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+set1.difference_update(set2)
+print(set1)  # Output: {1, 2}
+```
+
+discard(element)
+
+Removes the specified element from the set (if present).
+```python
+my_set = {1, 2, 3}
+my_set.discard(2)
+print(my_set)  # Output: {1, 3}
+intersection(iterable)
+Returns the set of elements that are common to the set and the specified iterable.
+python
+Copy code
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result_set = set1.intersection(set2)
+print(result_set)  # Output: {3, 4}
+intersection_update(iterable)
+
+Updates the set, keeping only elements found in both the set and the specified iterable.
+python
+Copy code
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+set1.intersection_update(set2)
+print(set1)  # Output: {3, 4}
+isdisjoint(iterable)
+
+Returns True if the set has no elements in common with the specified iterable.
+python
+Copy code
+set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+result = set1.isdisjoint(set2)
+print(result)  # Output: True
+issubset(iterable)
+
+Returns True if all elements of the set are present in the specified iterable.
+python
+Copy code
+set1 = {1, 2}
+set2 = {1, 2, 3, 4}
+result = set1.issubset(set2)
+print(result)  # Output: True
+issuperset(iterable)
+
+Returns True if all elements of the specified iterable are present in the set.
+python
+Copy code
+set1 = {1, 2, 3, 4}
+set2 = {1, 2}
+result = set1.issuperset(set2)
+print(result)  # Output: True
+pop()
+
+Removes and returns an arbitrary element from the set.
+python
+Copy code
+my_set = {1, 2, 3}
+popped_element = my_set.pop()
+print(popped_element, my_set)  # Output (example): 1 {2, 3}
+remove(element)
+
+Removes the specified element from the set. Raises a KeyError if the element is not present.
+python
+Copy code
+my_set = {1, 2, 3}
+my_set.remove(2)
+print(my_set)  # Output: {1, 3}
+symmetric_difference(iterable)
+
+Returns the set of elements that are unique to each set (not common).
+python
+Copy code
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result_set = set1.symmetric_difference(set2)
+print(result_set)  # Output: {1, 2, 5, 6}
+symmetric_difference_update(iterable)
+
+Updates the set, keeping only elements that are unique to each set.
+python
+Copy code
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+set1.symmetric_difference_update(set2)
+print(set1)  # Output: {1, 2, 5, 6}
+union(iterable, ...)
+
+Returns a new set containing all elements from the set and the specified iterables.
+python
+Copy code
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1.union(set2)
+print(union_set)  # Output: {1, 2, 3, 4, 5}
+update(iterable, ...)
+
+Updates the set, adding elements from all specified iterables.
+python
+Copy code
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1.update(set2)
+print(set1)  # Output: {1, 2, 3, 4, 5}
+These methods provide a variety of ways to manipulate and operate on sets in Python.
+
 ## Functions
 
 A function is a block of code that performs a specific task. It can take input(s), perform operations on those inputs, and return output(s).
@@ -132,87 +369,7 @@ When you call this function with the values 3 and 5, the interpreter creates a n
 
 The return statement tells the interpreter to return the value of sum to the caller, and the local namespace is destroyed.
 
-## List , Dictionary Comprehensions
 
-
-### dictionary
-
-A dictionary is a collection of key-value pairs, where each key is associated with a value. In Python, dictionaries are created using curly braces {} or the dict() constructor.
-
-```python
-# Creating a dictionary
-my_dict = {'apple': 1, 'banana': 2, 'orange': 3}
-
-# Accessing values in a dictionary
-print(my_dict['apple']) # Output: 1
-print(my_dict.get('banana')) # Output: 2
-
-# Adding or modifying key-value pairs in a dictionary
-my_dict['pear'] = 4
-my_dict['banana'] = 5
-print(my_dict) # Output: {'apple': 1, 'banana': 5, 'orange': 3, 'pear': 4}
-
-# Removing key-value pairs from a dictionary
-del my_dict['orange']
-print(my_dict) # Output: {'apple': 1, 'banana': 5, 'pear': 4}
-
-# Iterating over a dictionary
-
-for key, value in my_dict.items():
-    print(key, value)
-
-for key in my_dict.keys():
-    print(key, my_dict[key])
-
-for key in my_dict:
-    print(key, my_dict[key])
-
-for value in my_dict.values():
-    print(value)
-
-
-# Create a new list of keys using a list comprehension
-keys = [key for key in my_dict]
-print(keys) # Output: ['apple', 'banana', 'orange']
-
-# Create a new list of values using a list comprehension
-values = [my_dict[key] for key in my_dict]
-print(values) # Output: [1, 2, 3]
-
-```
-
-#### string to dictionary
-
-##### json.loads
-
-This function is used to parse a JSON-formatted string and convert it into a Python object (usually a dictionary or list). The input to this function is a string, and the output is a Python object.
-
-```python
-import json
-
-json_str = '{"name": "John", "age": 30, "city": "New York"}'
-my_dict = json.loads(json_str)
-
-print(my_dict) # {'name': 'John', 'age': 30, 'city': 'New York'}
-
-```
-
-##### json.load
-
-This function is used to read JSON data from a file and convert it into a Python object. The input to this function is a file object (opened using open()), and the output is a Python object.
-
-```python
-import json
-
-# Open JSON file
-with open('data.json', 'r') as f:
-    # Parse JSON file into dictionary
-    data = json.load(f)
-
-# Print dictionary
-print(data)
-
-```
 
 ##### json.dump
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Local Storage Example</title>
+</head>
+<body>
+
+    <div id="app">
+        <form id="dataForm">
+            <label for="dataInput">Enter Data:</label>
+            <input type="text" id="dataInput" required>
+            <button type="button" onclick="saveData()">Save to Local Storage</button>
+        </form>
+
+        <button type="button" onclick="retrieveData()">Retrieve from Local Storage</button>
+
+        <div id="outputContainer">
+            <p id="outputMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
