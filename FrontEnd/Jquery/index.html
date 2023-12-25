@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Filters Examples</title>
+    <style>
+        p, li {
+            margin: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<!-- :first Filter Example -->
+<p>This is the first paragraph.</p>
+<p>This is the second paragraph.</p>
+
+<!-- :last Filter Example -->
+<p>This is the third paragraph.</p>
+<p>This is the last paragraph.</p>
+
+<!-- :first-child Filter Example -->
+<ul>
+
+    <li>First List Item</li>
+    <li>Second List Item</li>
+</ul>
+
+<!-- :last-child Filter Example -->
+<ul>
+    <li>Another List Item</li>
+    <li>Last List Item</li>
+</ul>
+
+<script>
+    // jQuery code using filters
+    $(document).ready(function () {
+        // :first Filter
+        $("p:first").css("color", "blue");
+
+        // :last Filter
+        $("p:last").css("color", "green");
+
+        // :first-child Filter
+        $("ul li:first-child").css("font-weight", "bold");
+
+        // :last-child Filter
+        $("ul li:last-child").css("font-style", "italic");
+    });
+</script>
+
+</body>
+</html>
+
