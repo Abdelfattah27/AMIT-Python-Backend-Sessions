@@ -1,3 +1,9 @@
+```bash
+
+python manage.py createsuperuser
+
+```
+
 ```sql
 
 CREATE TABLE order_items (
@@ -9,6 +15,7 @@ CREATE TABLE order_items (
     price NUMERIC(7,2),
     image VARCHAR(255)
 );
+
 
 
 
@@ -92,6 +99,9 @@ WHERE o.user_id = 1;
 
 SELECT * FROM orders
 WHERE is_paid = TRUE AND is_delivered = FALSE;
+
+ -- models.Q() & models.Q() === AND
+ -- models.Q() | models.Q() ===  OR
 
 
 SELECT p.*, r.rating, r.comment
