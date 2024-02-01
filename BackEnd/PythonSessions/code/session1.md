@@ -1,5 +1,80 @@
 ```python
 
+
+x = True 
+y = False 
+
+
+x = 3 > 10
+y = 10 < 3
+
+
+        if 3 > 5 :
+            print ("3 greater than 5")
+
+        if True : 
+            print("it's really True")
+
+
+
+
+
+        first_name = 'abdelfattah'
+        last_name = "hamdi"
+        first_char = "Mohamed"[0]
+
+
+        # Example Arrays
+        array1 = [1, 2, 3, 4, 5]
+        array2 = [3, 4, 5, 6, 7]
+
+        # Array Difference
+        difference = list(set(array1) - set(array2))
+
+        # Print the Result
+        print("Array Difference:", difference) # [1,2]
+
+
+
+
+
+        # Positive and Negative Numbers
+        positive_number = 5
+        negative_number = -3
+
+        # Perform Arithmetic Operations
+        sum_result = positive_number + negative_number # 2
+        difference_result = positive_number - negative_number # 8
+
+
+
+
+        # Subtraction Operation Example
+        num1 = 10
+        num2 = 5
+
+        # Subtracting num2 from num1
+        result = num1 - num2
+
+        # Print the Result
+        print(f"{num1} - {num2} = {result}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # value = "Hello World"
 # value2 = "Hello Mohamed"
 # Value = "Hello omar"
@@ -112,27 +187,53 @@
 # Falsy Values 
 # False , "" , 0 , 0.0 , None
 
-# print(bool(False))
-# print(bool(""))
-# print(bool(0))
-# print(bool(0.0))
-# print(bool(None))
-# print(bool("3"))
-# print(bool("0"))
-# print(bool(" "))
 
-# print(3 == 3)
-# print(3 != 3)
-# print(3 > 3)
-# print(3 < 3)
-# print(3 >= 3)
-# print(3 <= 3)
 
-x = False
 
-if x == True :
-    print("Hello World")
 
-print("Hamada")
 
-```
+
+
+
+# print(bool(False))    #     False
+# print(bool(""))       #     False
+# print(bool(0))        #     False
+# print(bool(0.0))      #     False
+# print(bool(None))     #     False
+# print(bool("3"))      #     True
+# print(bool("0"))      #     True
+# print(bool(" "))      #     True
+
+
+
+
+
+#         print(3 == 3)
+#         print(3 != 3)
+#         print(3 > 3)
+#         print(3 < 3)
+#         print(3 >= 3)
+#         print(3 <= 3)
+
+
+        
+
+# x = False
+
+# if x == True :
+#     print("Hello World")
+
+# print("Hamada")
+
+# ```
+
+
+
+
+
+
+
+
+
+
+# num = input()

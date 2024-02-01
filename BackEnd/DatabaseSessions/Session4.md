@@ -158,3 +158,73 @@ Order and OrderItems: One order can have many order items associated with it, an
 Order and ShippingAddress: One order can have one shipping address associated with it, and each shipping address can only be associated with one order. This is a one-to-one relationship, where the Order entity is the "one" side and the ShippingAddress entity is the "one" side.
 
 ### SQL code to create such that ECommerce
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    photo VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    name VARCHAR(200),
+    image VARCHAR(255) DEFAULT '/placeholder.png',
+    brand VARCHAR(200),
+    category VARCHAR(200),
+    description TEXT,
+    rating NUMERIC(7,2),
+    num_reviews INTEGER DEFAULT 0,
+    price NUMERIC(7,2),
+    count_in_stock INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(id) ON DELETE SET NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    name VARCHAR(200),
+    rating INTEGER DEFAULT 0,
+    comment TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    payment_method VARCHAR(200),
+    tax_price NUMERIC(7,2),
+    shipping_price NUMERIC(7,2),
+    total_price NUMERIC(7,2),
+    is_paid BOOLEAN DEFAULT FALSE,
+    paid_at TIMESTAMP WITH TIME ZONE,
+    is_delivered BOOLEAN DEFAULT FALSE,
+    delivered_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE order_items (
+    id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(id) ON DELETE SET NULL,
+    order_id INTEGER REFERENCES orders(id) ON DELETE SET NULL,
+    name VARCHAR(200),
+    quantity INTEGER DEFAULT 0,
+    price NUMERIC(7,2),
+    image VARCHAR(255)
+);
+
+CREATE TABLE shipping_addresses (
+    id SERIAL PRIMARY KEY,
+    order_id INTEGER REFERENCES orders(id) ON DELETE SET NULL,
+    address VARCHAR(200),
+    city VARCHAR(200),
+    postal_code VARCHAR(200),
+    country VARCHAR(200)
+);
+
+```

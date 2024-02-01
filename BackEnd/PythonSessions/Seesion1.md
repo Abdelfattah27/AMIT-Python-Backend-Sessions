@@ -45,7 +45,7 @@ Float (float): a decimal number, such as 3.14 or 2.0.
 String (str): a sequence of characters, such as "hello" or "world".
 Boolean (bool): a value that is either True or False.
 List (list): a collection of values, such as [1, 2, 3] or ["apple", "banana", "orange"].
-Tuple (tuple): a collection of values, similar to a list, but cannot be modified, such as (1, 2, 3) or ("apple", "banana", "orange").
+Tuple (tuple): a collection of values, similar Pythto a list, but cannot be modified, such as (1, 2, 3) or ("apple", "banana", "orange").
 Dictionary (dict): a collection of key-value pairs, such as {"name": "John", "age": 30}.
 
 In Python, we can check the data type of a variable using the type() function. Here is an example:
@@ -108,6 +108,7 @@ bad code
     x =  1 + 2 * 5
     x =  1 + 10
     x = 11
+    
     ```
 
   - pluse (+) can be work as addition or concatenation

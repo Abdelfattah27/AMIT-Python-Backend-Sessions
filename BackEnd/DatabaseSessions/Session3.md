@@ -50,7 +50,7 @@ PostgreSQL:
 3. Date/time data types:
    - DATE: date (year, month, day)
    - TIME: time of day (hour, minute, second)
-   - TIMESTAMP: date and time (year, month, day, hour, minute, second)
+   - alter : date and time (year, month, day, hour, minute, second)
    - INTERVAL: a duration of time
 4. Boolean data type:
    - BOOLEAN: true or false value
