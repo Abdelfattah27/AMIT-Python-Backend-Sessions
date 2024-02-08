@@ -25,6 +25,5 @@
     - my-create-react-app
     - npm install -g create-react-app 
     - npx create-react-app
-    - React.createElement()
-    - class Component 
-    - 
+    - structure of react application 
+    - create elements and render it from app.js
