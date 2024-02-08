@@ -1,0 +1,30 @@
+# Structure 
+
+    - add element under div in vanilla js
+    - nav bar from bootstrap 
+    - changing in this sort of code lead to bad maintenance 
+    - One file Problem 
+    - decomposing the navbar into some components 
+    - function is the best way to do this  
+    - after demonstrating the idea run react cdn 
+    - babel demonstration 
+    - let the people doing the installation of babel 
+    - ReactDOM.render() example 
+    - jsx into variable 
+    - children of div 
+    - task of render list of names 
+    - render two siblings 
+    - class > className
+    - jsx into function 
+    - call function 
+    - class function using <SayMyName></SayMyName>
+    - decomposing the NavBar into components into function
+    - CamelCase JSX 
+    - install Node 
+    - npm install react , react-dom 
+    - my-create-react-app
+    - npm install -g create-react-app 
+    - npx create-react-app
+    - React.createElement()
+    - class Component 
+    - 
