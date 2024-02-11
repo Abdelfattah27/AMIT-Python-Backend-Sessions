@@ -1,5 +1,52 @@
 # Templates
+## What templates 
 
+```python
+
+
+def data(request):
+    from django.template import Template, Context
+
+    li = [1, 2, 3, 4, 5]
+
+    # Define your template string
+    x = """
+    {% for i in list %}
+        <div>Hello {{ i }}</div>
+    {% endfor %}
+    """
+
+    # Create a Template object
+    template = Template(x)
+
+    # Create a Context object with the provided context data
+    context = Context({"list": li})
+
+    # Render the template with the context
+    w = template.render(context)
+    from django.template import engines
+
+    li = [1, 2, 3, 4, 5]
+
+    # Define your template string
+    x = """
+    {% for i in list %}
+        <h1>Hello {{ i }}</h1>
+    {% endfor %}
+    """
+
+    # Get Django's default template engine
+    template_engine = engines['django']
+
+    # Render the template with the provided context
+    template = template_engine.from_string(x)
+    w = template.render({"list": li})
+    # print(w)
+
+    # return HttpResponse(w)
+    return render(request, "index.html")
+
+```
 ## Templates : it's the DTL - django teplates language - it supports
 
     1. inheretance **totally ot partially**
