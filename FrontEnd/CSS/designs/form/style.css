@@ -20,10 +20,11 @@ body {
   line-height: 1.4;
   color: var(--color-white);
   margin: 0;
+  background-color: rgba(118, 118, 240, 0.7);
 }
 
 /* mobile friendly alternative to using background-attachment: fixed */
-body::before {
+/* body::before {
   content: '';
   position: fixed;
   top: 0;
@@ -35,6 +36,8 @@ body::before {
   background-color:rgba(118, 118, 240, 0.7);
 
 }
+
+*/
 
 h1 {
   font-weight: 400;

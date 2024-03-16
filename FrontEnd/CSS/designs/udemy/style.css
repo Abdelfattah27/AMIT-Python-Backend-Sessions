@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+}
+.d-none{
+    display: none;
+}
+.nav-bar{
+    position: fixed;
+    width: 100%;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
+
+}
+.nav-item{
+    margin: 0px 10px ;
+    white-space: nowrap;
+}
+.udemy-logo{
+    width: 6rem;
+}
+.nav-form {
+    flex-grow: 1;
+}
+a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: blue;
+}
+form {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    border-radius: 100px;
+    justify-content: start;
+    align-items: center;
+    background-color: #f7f9fa;
+}
+.form-inp{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    width: 90%;
+}
+.search-icon{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    cursor:not-allowed;
+    width: 8%;
+}
+.btn {
+    padding: 13px;
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.btn-login {
+    background-color: white;
+}
+.btn-signup {
+    background-color: black;
+    color: white;
+}
+.btn-signup:hover {
+    background-color: #333;
+}
+.btn-login:hover{
+    background-color: #eee;
+}
+.language-icon{
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.language-icon:hover {
+    color: black;
+    background-color: #eee;
+}
+
+@media (max-width : 1080px) {
+    .udemy-business {
+        display: none;
+    }
+}
+@media (max-width: 900px) {
+    .teach-on-udemy{
+        display: none;
+    }
+}
+@media (max-width : 800px) {
+    .btn ,  .categories ,  .nav-form  , .language {
+        display: none;
+    }
+    .d-none{
+        display: inline-block;
+    }
+    .udemy{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+
+}

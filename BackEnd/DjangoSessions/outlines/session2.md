@@ -12,3 +12,4 @@ python manage.py migrate
 python manage.py sqlmigrate app-name migration-number
 python manage.py shell
 ```
+5. CRUD Operation on object ()

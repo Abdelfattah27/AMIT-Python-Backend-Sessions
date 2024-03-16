@@ -1,9 +1,13 @@
 # outline
 
-1. React-BootStrap 
-2. React Sweet Alert 
-3. Complete the CRUD app 
-4. Request methods
-5. json-server
-6. modify crud to get data from json-server 
-7. Context API 
+
+1. Function Component Life cycle 
+   1. useEffect() `without dependencies`
+   2. useEffect() `with dependencies`
+   3. useEffect as ComponentWillUnmount
+   
+2. binding state object (name , age example)
+3. binding state array (add number example)
+4. Basic CRUD operations app
+5.  React Sweet Alert 
+6. Complete the CRUD app 

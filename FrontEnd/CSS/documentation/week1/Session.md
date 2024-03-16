@@ -353,7 +353,8 @@ CSS provides a wide range of text properties that allow you to control the appea
         .header
         {
             text-shadow : 1px 1px 1px 1px black 
-            /*shadow from (top & bottom) = 1px shadow from (right & left) = 1px */
+            /*shadow from (top & bottom) = 1px 
+            /* shadow from (right & left) = 1px */
             /*blur with 1px , shadow distrubution with 1px*/
             /*and finaly the color of the shadow is black*/
         }

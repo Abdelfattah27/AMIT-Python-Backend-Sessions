@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Items Baseline Example</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: flex-start;
+            background-color: aqua;
+            height: 300px;
+            /* flex-wrap: wrap-reverse; */
+            width: 500px;
+            /* flex-flow: row wrap; */
+            /* justify-content: space-around; */
+        }
+
+        .item {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid black;
+            background-color: antiquewhite;
+            flex-basis: 40%;
+        }
+
+        .one {
+            /* align-self: stretch; */
+            /* order: 1; */
+            /* flex-grow: 1; */
+        }
+
+        .two {
+            /* order: 2; */
+            flex-shrink: 0;
+            /* flex-grow: 2; */
+            /* flex-shrink: 0; */
+
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                background-color: blueviolet;
+            }
+        }
+
+        @media (min-width : 1000px) {
+            .container {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="item one" style="font-size: 24px;">Item 1</div>
+        <div class="item two" style="font-size: 16px;">Item 2</div>
+        <div class="item" style="font-size: 12px;">Item 3</div>
+
+    </div>
+</body>
+
+</html>

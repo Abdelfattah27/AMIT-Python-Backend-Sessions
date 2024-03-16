@@ -9,12 +9,13 @@ body {
 }
 
 .marker-red {
+    text-indent: 10px;
     background-color: red;
     width: 250px;
     height: 25px;
-    margin: auto;
-    margin-top: 50px;
-    box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8);
+        /* margin: auto;
+                                    margin-top: 50px; */
+            /* box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8); */
 }
 .cap{
     width:60px

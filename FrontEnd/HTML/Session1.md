@@ -216,7 +216,8 @@ Understanding the structure of an HTML document, including the `DOCTYPE` declara
    - **Example:**
      ```html
      <head>
-         <link rel="stylesheet" href="styles.css">
+        <!-- -->
+         <link rel="stylesheet" href="styles.css"> 
      </head>
      ```
 

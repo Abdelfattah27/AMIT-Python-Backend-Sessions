@@ -711,3 +711,70 @@ Code:
 ```
 
 This media query detects high-resolution screens and serves images optimized for Retina displays.
+
+## Frog Flexbox Solution 
+
+1)  `justify-content: flex-end;`
+2)  `justify-content: center;`
+3)  `justify-content: space-around;`
+4)  `justify-content: space-between;`
+5)  `align-items: flex-end;`
+6)  
+```css
+align-items: center;
+justify-content: center;
+```    
+7)  `justify-content: space-around;`
+8)  `flex-direction: row-reverse;`
+9)  `flex-direction: column;`
+10) 
+```css 
+flex-direction: row-reverse;
+justify-content: flex-end;
+```
+11)  
+```css
+flex-direction: column;
+justify-content: flex-end;
+```
+12)  
+```css
+flex-direction: column-reverse;
+justify-content: space-between;
+```
+13)  
+```css
+flex-direction: row-reverse;
+justify-content: center;   
+align-items: flex-end;
+```
+14)  `order: 1;`
+15)  `order: -3;`
+16)  3)  `align-self: flex-end;`
+17) 
+```css
+align-self: flex-end;
+order: 1;
+```
+18)  `flex-wrap: wrap;`
+19)    
+```css
+flex-direction: column;
+flex-wrap: wrap;
+```
+20)  `flex-flow: column wrap;`
+21)  2)  `align-content: flex-start;`
+22) `align-content: flex-end;`
+23) 
+```css
+flex-direction: column-reverse;
+align-content: center;
+``` 
+24)  
+```css
+flex-flow:column-reverse wrap-reverse;
+    
+justify-content:center;
+
+align-content:space-between;
+```

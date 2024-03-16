@@ -1,0 +1,115 @@
+# outline 
+1. container
+   1. container - container fluid 
+2.  bootstrap elements 
+   1. h
+      1. h1
+      2. h2
+      3. h3
+      4. h4
+      5. h5
+      6. h6
+   2. display
+      1. display-1
+      2. display-2
+      3. display-3
+      4. display-4
+      5. display-5
+      6. display-6
+3. text 
+   1. text-center
+   2. text-start
+   3. text-end
+   4. text-lowercase
+   5. text-uppercase
+   6. text-nowrap
+   7. text-muted
+   8. text-opacity-{100|75|5-|25}
+   9. text-decoration-{}
+      1. line-through
+      2. none
+      3. underline
+
+4. ul
+   1. list-group
+   2. list-group-flush
+   3. list-group-item
+   4. list-group-horizontal 
+   5. list-group-item-danger
+   6. list-unstyled 
+5. table
+   1. table
+   2. table-{theme}
+   3. table-striped
+   4. table-hover
+6. form
+   1. form
+   2. form-group
+   3. form-control
+   4. form-label
+   5. form-control-plaintext
+   6. visually-hidden
+   7. form-floating
+   8. btn
+      1. btn-{color}
+7. border
+   1.  border
+   2.  border-{color}
+   3.  border-{0-3}
+   4.  rounded
+   5.  rounded-{0-3}
+   6.  rounded-circle
+   7.  rounded-pill
+8.  styles
+   1.  m-{number}
+       1. ms
+       2. me
+       3. mb
+       4. mt
+       5. my
+       6. mx
+       7. m
+    2. p
+       1. ps
+       2. pe
+       3. pb
+       4. pt
+       5. py
+       6. px
+       7. p
+    3. bg
+    4. w-{number}
+       1. w-100
+       2. w-75
+       3. w-50
+       4. w-25
+    5. h-{number}
+       1. h-100
+       2. h-75
+       3. h-50
+       4. h-25
+    6. d
+       1. d-flex
+          1. justify-content-{}
+          2. align-items-{}
+          3. flex-row
+          4. flex-column
+          5. flex-nowrap
+          6. flex-wrap
+          7. flex-grow-{num}
+          8. 
+       2. d-none
+       3. d-block
+       4. d-inline
+       5. d-inline-block
+    7. overflow
+       1. overflow-hidden
+       2. overflow-scroll
+       3. overflow-auto
+       4. overflow-{x|y}-{value}
+    8. position
+       1. position-absolute
+9.  components
+   1.  accordion 
+   2.  badge
+   3.  alerts

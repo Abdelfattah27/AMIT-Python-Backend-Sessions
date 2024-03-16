@@ -7,22 +7,17 @@
     1.  input
     2.  textarea 
     3.  select 
-
-3. Class Component Life Cycle
+3. 1. React-BootStrap 
+4. Class Component Life Cycle
     1.  Mounting Phase 
         1.  constructor
-        2.  getDerivedStateFromProps
+        2.  static getDerivedStateFromProps(props , states)
         3.  render
-        4.  componentDidMount
+        4.  componentDidMount (change title)
     2. Updating Phase 
-       1. getDerivedStateFromProps 
-       2. shouldComponentUpdate
+       1. static getDerivedStateFromProps (props , states)
+       2. shouldComponentUpdate => bool 
        3. render
        4. componentDidUpdate
     3. un mounting phase
        1. componentWillUnmount
-4. Function Component Life cycle 
-   1. useEffect() `without dependencies`
-   2. useEffect() `with dependencies`
-   3. useEffect as ComponentWillUnmount
-5. Basic CRUD operations app
