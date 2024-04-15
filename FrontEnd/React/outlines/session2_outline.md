@@ -16,7 +16,7 @@
    2. state in class component (variable when change it changes the ui) , (this.state , this.setState)
    3. Counter example 
       1. simple counter example (with logging in console)
-      2. counter with coll back function 
+      2. counter with call back function 
       3. counter with start, step 
       4. counterFive example 
       5. binding this 
@@ -25,7 +25,6 @@
 7. pass function as prop 
 8. conditional rendering
    1. if-else 
-   2. delete me 
-   3. ? :
-   4. && 
+   2. ? :
+   3. && 
 9. map to render from list   
